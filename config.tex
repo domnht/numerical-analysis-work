@@ -1,0 +1,33 @@
+\usepackage[margin=2cm,left=3cm]{geometry}
+\usepackage[utf8]{vietnam}
+\usepackage{amsfonts,amsmath,amsthm,amssymb} % math
+\usepackage{enumitem,multicol,multirow,longtable} % layout
+\usepackage{tikz,graphicx,wrapfig,xcolor} % graphing
+\usepackage{ragged2e,changepage,fancyhdr} % page setup
+\usepackage{titlesec} % chapter title setting
+\usepackage{blindtext}
+\usepackage[backend=biber,style=apa,sorting=ynt]{biblatex} % references back end
+\usepackage[hidelinks,unicode]{hyperref}
+
+% Paragraph format
+\renewcommand{\baselinestretch}{1.1}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+% Chapter custom
+\titleformat{\chapter}[display] % display|hang
+{\centering\normalfont\huge\bfseries}{\centering\chaptertitlename\ \thechapter}{0pt}{\Huge} % pattern
+\titlespacing{\chapter}{0pt}{0pt}{12pt} % spacing with other
+% middle number (-24pt) is space-before chapter-title
+
+% Add hyperlink to table of contents
+% \hypersetup{linktoc=all}
+
+% Set up graphicx
+\graphicspath{ {images/} }
+
+% Equations prefer
+\everymath{\displaystyle}
+
+% add references resource
+\addbibresource{references.bib}

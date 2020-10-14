@@ -1,0 +1,25 @@
+\documentclass[a4paper,twoside,openright,12pt]{report}
+\input{config}
+\begin{document}
+
+% Opening
+\input{pages/cover}
+\thispagestyle{empty}
+\cleardoublepage
+\pagenumbering{roman}
+
+% Table of Contents
+% \input{pages/table-of-content}
+
+% Main contents
+\cleardoublepage
+\pagenumbering{arabic}
+\input{chapters/chapter-1}
+\input{chapters/chapter-2}
+
+% References
+% \cleardoublepage
+% \printbibliography[title={Tài liệu tham khảo}]
+% \addcontentsline{toc}{chapter}{Tài liệu tham khảo}
+
+\end{document}

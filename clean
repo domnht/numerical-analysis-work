@@ -1,0 +1,18 @@
+#!/bin/bash
+echo "Cleaning..."
+rm '.DS_Store'
+find * -name '*.aux' -delete
+find * -name '*.bbl' -delete
+find * -name '*.bcf' -delete
+find * -name '*.blg' -delete
+find * -name '*.fdb_latexmk' -delete
+find * -name '*.fls' -delete
+find * -name '*.gz' -delete
+find * -name '*.lof' -delete
+find * -name '*.log' -delete
+find * -name '*.lot' -delete
+find * -name '*.out' -delete
+find * -name '*.swp' -delete
+find * -name '*.toc' -delete
+find * -name '*.xml' -delete
+echo "All done!"

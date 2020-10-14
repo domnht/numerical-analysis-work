@@ -1,0 +1,75 @@
+\chapter{Lý thuyết nội suy}
+\textbf{\color{blue}Bài 1.} Tìm đa thức nội suy Larange của hàm số $y=f(x)$ cho bằng bảng sau:\par
+d)\begin{center}\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	$x$&321&322,8&324,2&325\\ \hline
+	$y$&2,50651&2,50893&2,51081&2,51188\\ \hline
+\end{tabular}\end{center}
+Và tính gần đúng giá trị $f(323,5)$.\par
+e)\begin{center}\begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+	$x$&-2&1&3&4&7\\ \hline
+	$y$&12&37&51&67&127\\ \hline
+\end{tabular}\end{center}
+Và tính gần đúng giá trị $f(5,1)$.\par
+
+\textbf{Giải:}\par
+d) Ta có:
+\begin{align*}
+	y_0.L_0(x)	& =2,50651\cdot\frac{(x-322,8)(x-324,2)(x-325)}{(321-322,8)(321-324,2)(321-325)}\\
+				& =\frac{250651}{100000}\cdot\frac{-25}{576}\left(x^3-\frac{4862}{5}x^2+\frac{7879661}{25}x-34053968\right)\\
+				& =\frac{1420849532687}{384000}-\frac{1973417683019}{57600000}x+\frac{6767577}{64000}x^2-\frac{250651}{2304000}x^3
+\end{align*}
+Thay $x=323,5$, ta được $y_0.L_0(323,5)=-0,07996027$\par
+\begin{align*}
+	y_1.L_1(x)	& =2,50893\cdot\frac{(x-321)(x-324,2)(x-325)}{(322,8-321)(322,8-324,2)(322,8-325)}\\
+				& =-\frac{188572098741}{12320}+\frac{6247598101}{44000}x-\frac{1756251}{4000}x^2+\frac{27877}{61600}x^3
+\end{align*}
+Thay $x=323,5$, ta được $y_1.L_1(323,5)=1,18794034$
+\begin{align*}
+	y_2.L_2(x)	& =2,51081\cdot\frac{(x-321)(x-322,8)(x-325)}{(324,2-321)(324,2-322,8)(324,2-325)}\\
+				& =\frac{845543137491}{35840}-\frac{56108317827}{256000}x+\frac{43437013}{64000}x^2-\frac{251081}{358400}x^3
+\end{align*}
+Thay $x=323,5$, ta được $y_2.L_2(323,5)=1,83897216$
+\begin{align*}
+	y_3.L_3(x)	& =2,51188\cdot\frac{(x-321)(x-322,8)(x-324,2)}{(325-321)(325-322,8)(325-324,2)}\\
+				& =-\frac{26369413998039}{2200000}+\frac{490348427793}{4400000}x-\frac{690767}{2000}x^2+\frac{62797}{176000}x^3
+\end{align*}
+Thay $x=323,5$, ta được $y_3.L_3(323,5)=-0,43708139$\par
+Do đó ta có đa thức nội suy Larange có dạng: \begin{align*}
+	P(x)	& =y_0.L_0(x)+y_.L_1(x)+y_2.L_2(x)+y_3.L_3(x)\\
+			& =\frac{6766686623}{369600000}-\frac{47439221}{316800000}x+\frac{3}{6400}x^2-\frac{43}{88704000}x^3
+\end{align*}
+và \begin{align*}
+	L(323,5)	& =y_0.L_0(323,5)+y_.L_1(323,5)+y_2.L_2(323,5)+y_3.L_3(323,5)\\
+				& =2,50987084
+\end{align*}
+Vậy giá trị gần đúng của $f(323,5)$ là $P(323,5)\approx 2,50987084$\par
+
+e) Ta có:
+\begin{align*}
+	y_0L_0(x)	& =12\cdot\frac{(x-1)(x-3)(x-4)(x-7)}{(-2-1)(-2-3)(-2-4)(-2-7)}\\
+				& =\frac{56}{45}-\frac{58}{27}x+\frac{10}{9}x^2-\frac{2}{9}x^3+\frac{2}{135}x^4
+\end{align*}
+\begin{align*}
+	y_1L_1(x)	& =37\cdot\frac{(x+2)(x-3)(x-4)(x-7)}{(1+2)(1-3)(1-4)(1-7)}\\
+				& =\frac{518}{9}-\frac{703}{54}x-\frac{407}{36}x^2+\frac{37}{9}x^3-\frac{37}{108}x^4
+\end{align*}
+\begin{align*}
+	y_2L_2(x)	& =51\cdot\frac{(x+2)(x-1)(x-4)(x-7)}{(3+2)(3-1)(3-4)(3-7)}\\
+				& =-\frac{357}{5}+\frac{255}{4}x+\frac{153}{8}x^2-\frac{51}{4}x^3+\frac{51}{40}x^4
+\end{align*}
+\begin{align*}
+	y_3L_3(x)	&=67\cdot\frac{(x+2)(x-1)(x-3)(x-7)}{(4+2)(4-1)(4-3)(4-7)}\\
+				&=\frac{469}{9}-\frac{2747}{54}x-\frac{67}{6}x^2+\frac{67}{6}x^3-\frac{67}{54}x^4
+\end{align*}
+\begin{align*}
+	y_4L_4(x)	& =127\cdot\frac{(x+2)(x-1)(x-3)(x-4)}{(7+2)(7-1)(7-3)(7-4)}\\
+				& =-\frac{127}{27}+\frac{1651}{324}x+\frac{127}{216}x^2-\frac{127}{108}x^3+\frac{127}{648}x^4
+\end{align*}
+Do đó ta có đa thức nội suy Larange có dạng:
+\begin{align*}
+	P(x)	& =y_0.L_0(x)+y_.L_1(x)+y_2.L_2(x)+y_3.L_3(x)\\
+			& =\frac{4699}{135} + \frac{455}{162}x - \frac{89}{54}x^2 + \frac{61}{54}x^3 - \frac{79}{810}x^4
+\end{align*}
+và giá trị gần đúng của $f(5,1)$ là $P(5,1)\approx 90,1281$.
