@@ -277,3 +277,6 @@ TSWLatexianTemp*
 
 ## macOS cache file
 *.DS_Store
+
+## SublimeText Workspace file
+*.sublime-workspace
