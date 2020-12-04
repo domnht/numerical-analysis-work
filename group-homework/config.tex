@@ -7,10 +7,11 @@
 \usepackage{titlesec} % chapter title setting
 \usepackage[hidelinks,unicode]{hyperref}
 
-% Paragraph format
+% Spacing
 \renewcommand{\baselinestretch}{1.1}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{4pt}
+\newcommand\tabularrowheight[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
 
 % Chapter custom
 \titleformat{\chapter}[display] % display|hang

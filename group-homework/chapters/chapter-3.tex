@@ -1,0 +1,158 @@
+\chapter{Tính gần đúng đạo hàm và tích phân}
+
+\textbf{\color{blue}Bài 1.} Bằng phương pháp hình thang và Simpson 1/3, với $n=10$ để tính gần đúng và đánh giá sai số các tích phân sau:\par
+\begin{multicols}{2}
+  b) $I=\int_{0}^{\pi} \sin x\mathrm{d}x$\par
+  d) $I=\int_{0}^{6} \frac{1}{x^2+1}\mathrm{d}x$
+\end{multicols}
+
+\textbf{Giải}\par
+
+b)~$\star$~\textit{Công thức Simpson 1/3}\par
+Ta có $h=\frac{\pi-0}{10}=\frac{\pi}{10}$
+Ta có bảng sau:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}\hline
+$i$&$x_i$&\multicolumn {3} {|c|} {$y_i=f(x_i)= \sin x$}\\ \hline
+0&0&0& & \\ \hline
+1&$\frac{\pi}{10}$& &0,3090& \\ \hline
+2&$\frac{\pi}{5}$& & &0,5878 \\ \hline
+3&$\frac{3\pi}{10}$& &0,8090& \\ \hline
+4&$\frac{2\pi}{5}$& & &0,9511 \\ \hline
+5&$\frac{\pi}{2}$& &1& \\ \hline
+6&$\frac{3\pi}{5}$& & &0,9511 \\ \hline
+7&$\frac{7\pi}{10}$& &0,8090& \\ \hline
+8&$\frac{4\pi}{5}$& & &0,5878 \\ \hline
+9&$\frac{9\pi}{10}$& & 0,3090& \\ \hline
+10&$\pi$&0& & \\ \hline
+\end{tabular}
+\end{center}
+
+Theo công thức Simpson 1/3, ta có:
+$$I_S\approx \frac{\pi}{30}.\left[0+4.3,2361+2.3,0777\right]\approx 2,000105435$$
+
+Đánh giá sai số:
+$$\lvert I-I_S \rvert\leqslant \frac{\displaystyle\max_{0\leqslant x\leqslant\pi}\left\lvert f^{(4)}(x)\right\rvert}{180}(\pi -0)h^4=\frac{1}{180}.\pi.\left(\frac{\pi}{10}\right)^4\approx 0,00017$$
+
+$\star$~\textit{Công thức hình thang}\par
+Ta có $h=\frac{\pi-0}{10}=\frac{\pi}{10}$\par
+
+Ta được bảng sau:
+\begin{center}
+\begin{tabular}{|c|c|c|}\hline
+$x_i$&\multicolumn {2} {|c|} {$y_i=f(x_i)= \sin x$}\\ \hline
+0&	0&	\\ \hline
+$\frac{\pi}{10}$&		&0,3090\\ \hline
+$\frac{\pi}{5}$&		&0,5878\\ \hline
+$\frac{3\pi}{10}$&		&0,8090\\ \hline
+$\frac{2\pi}{5}$&		&0,9511\\ \hline
+$\frac{\pi}{2}$&		&1\\ \hline
+$\frac{3\pi}{5}$&		&0,9511\\ \hline
+$\frac{7\pi}{10}$&		&0,8090\\ \hline
+$\frac{4\pi}{5}$&		&0,5878\\ \hline
+$\frac{9\pi}{10}$&		&0,3090\\ \hline
+1&	0&	\\ \hline
+&0&6,3138 \\ \hline
+\end{tabular}
+\end{center}
+
+Do đó giá trị gần đúng của tích phân đã cho là:
+$$I_T\approx \frac{\pi}{2.10}.(0+2.6,3138)\approx 1,9835$$
+
+* Đánh giá sai số:
+Ta có $M=\max_{0\leqslant x\leqslant\pi}\lvert f''(x)\rvert=1$ và $\bar{I}=1,98$\par
+nên $\lvert I_T -\bar{I}\rvert\leqslant \frac{M}{12}.(\pi -0).\left(\frac{\pi}{10}\right)^2\approx 0,026$\par
+và $\lvert I_T -\bar{I}\rvert=3,5.10^{-3}$\par
+Do đó $\lvert I-\bar{I}\rvert\leqslant \lvert I-I_T\rvert+\lvert I_T-\bar{I}\rvert\leqslant 0,0295$.\par
+
+d)~$\star$~\textit{Công thức Simpson 1/3}\par
+Ta có $h=\frac{6-0}{10}=\frac{3}{5}$\par
+Ta có bảng sau:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}\hline
+$i$&$x_i$&\multicolumn {3} {|c|} {$y_i=f(x_i)= \frac{1}{x^2+1}$}\\ \hline
+0&0&1& & \\ \hline
+1&$0,6$& &0,7353& \\ \hline
+2&$1,2$& & &0,4098 \\ \hline
+3&$1,8$& &0,2358& \\ \hline
+4&$2,4$& & &0,1479 \\ \hline
+5&$3$& &$0,1$& \\ \hline
+6&$3,6$& & &0,0716 \\ \hline
+7&$4,2$& &0,0536& \\ \hline
+8&$4,8$& & &0,0416 \\ \hline
+9&$5,4$& & 0,0332& \\ \hline
+10&$6$&0,0270& & \\ \hline
+\end{tabular}
+\end{center}
+
+Theo công thức Simpson 1/3, ta có:
+$$I_S\approx \frac{1}{5}.\left[1,0270+4.1,1579+2.0,6980\right]\approx 1,410973$$
+
+Đánh giá sai số:
+$$\lvert I-I_S \rvert\leqslant \frac{\max_{0\leqslant x\leqslant 6}\left\lvert f^{(4)}(x)\right\rvert}{180}(6 -0)h^4=\frac{24}{180}.6.\left( \frac{3}{5}\right)^4= 0,10368  $$
+
+$\star$~\textit{Công thức hình thang}
+
+Ta có $h=\frac{6-0}{10}=\frac{3}{5}$
+Ta có bảng sau:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}\hline
+$i$&$x_i$&\multicolumn {2} {|c|} {$y_i=f(x_i)= \frac{1}{x^2+1}$}\\ \hline
+0&0&1&  \\ \hline
+1&$0,6$& &$\frac{25}{34}$ \\ \hline
+2&$1,2$&  &$\frac{25}{61}$ \\ \hline
+3&$1,8$& &$\frac{25}{106}$ \\ \hline
+4&$2,4$&  &$\frac{25}{169}$ \\ \hline
+5&$3$& &$\frac{1}{10}$ \\ \hline
+6&$3,6$&  &$\frac{25}{349}$ \\ \hline
+7&$4,2$& &$\frac{25}{466}$ \\ \hline
+8&$4,8$&  &$\frac{25}{601}$ \\ \hline
+9&$5,4$& &$\frac{25}{754}$ \\ \hline
+10&$6$&$\frac{1}{37}$& \\ \hline
+& &$\frac{38}{37}$&$\frac{11967477}{6543383}$\\ \hline
+\end{tabular}
+\end{center}
+
+Do đó giá trị gần đúng của tích phân đã cho là:
+$$I_T\approx \frac{6-0}{2.10}.(\frac{38}{37}+2.\frac{11967477}{6543383})=1,40547$$
+
+*~Đánh giá sai số
+Ta có $M=\max_{0\leqslant 6}\lvert f''(x)\rvert= 2$ và $\bar{I}=1,41$\par
+nên $\lvert I_T -\bar{I}\rvert\leqslant \frac{M}{12}.(6 -0).\left(\frac{3}{5}\right)^2=0,36$\par
+và $\lvert I_T -\bar{I}\rvert=4,53.10^{-3}$\par
+Do đó $\lvert I-\bar{I}\rvert\leqslant \lvert I-I_T\rvert+\lvert I_T-\bar{I}\rvert\leqslant 0,364653$.\par
+
+\textbf{\color{blue}Bài 5:} Tính gần đúng tích phân $I=\int_{-0,8}^{0,8} \frac{\sin^2 x}{\sqrt{1-\cos x}}\mathrm{d}x$ bằng công thức Simpson với $n=16$ và đánh giá sai số của kết quả vừa nhận được.\par
+
+\textbf{Giải}\par
+Ta có $h=\frac{0,8-(-0,8)}{16}=0,1$.\par
+Ta lập được bảng sau:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}\hline
+$i$&   $x_i$&\multicolumn {3} {|c|} {$y_i=f(x_i)= \frac{\sin^2 x}{\sqrt{1-\cos x}}$}\\ \hline
+  0&	-0,8&	0,934411509&			&		\\ \hline
+  1&	-0,7&			   &0,85582621	&		\\ \hline
+  2&	-0,6&			   &			&0,762860112 	\\ \hline
+  3&	-0,5&			   &0,656932407 &		    \\ \hline
+  4&	-0,4&	 	       &				&0,539742953	           \\ \hline
+  5&	-0,3&		       &0,413235796 &                          \\ \hline
+  6&	-0,2&		       &			&0,279557228	           \\ \hline
+  7&	-0,1&		       &0,141009326 &                 \\ \hline
+  8&	0,001&		       &			&0,001414213	           \\ \hline
+  9&	0,1&		       &0,141009326 &                   \\ \hline
+ 10&	0,2&		       &			&0,279557228	           \\ \hline
+ 11&	0,3&		       &0,413235796 &                    \\ \hline
+ 12&	0,4&		       &			&0,539742953	              \\ \hline
+ 13&	0,5&		       &0,656932407	&					\\ \hline
+ 14&	0,6&			   &            &0,762860112		\\ \hline
+ 15&	0,7&		       &0,85582621	&		\\ \hline
+ 16&	0,8&	0,934411509&		    &		\\ \hline
+   &	   &     1,868823017&4,134007477&	3,165734799	\\ \hline
+\end{tabular}
+\end{center}
+
+Theo công thức Simpson 1/3, ta có:
+$$I_S\approx \frac{0,1}{3}.\left[1,868823017+4.4,134007477 +2.3,165734799\right]\approx 0,824544084$$
+
+*~Đánh giá sai số:
+$$\lvert I-I_S \rvert\leqslant \frac{\displaystyle\max_{-0,8\leqslant x\leqslant 0,8}\left\lvert f^{(4)}(x)\right\rvert}{180}(0,8+0,8)h^4=\frac{3,35366}{180}.1,6.\left( 0,1\right)^4\approx1,98103.10^{-6}$$
