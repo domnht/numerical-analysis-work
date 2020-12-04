@@ -1,0 +1,24 @@
+\documentclass[a4paper,twoside,openright,12pt]{article}
+\input{config}
+\begin{document}
+
+% Opening
+\input{pages/cover}
+\thispagestyle{empty}
+\cleardoublepage
+\pagenumbering{roman}
+
+% Table of Contents
+\input{pages/table-of-content}
+
+% Main contents
+\cleardoublepage
+\pagenumbering{arabic}
+
+\input{sections/definition}
+\input{sections/euler}
+\input{sections/runge-kutta}
+\input{sections/adams}
+\input{sections/exercises}
+
+\end{document}

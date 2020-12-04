@@ -1,0 +1,26 @@
+\usepackage[margin=2cm,left=3cm]{geometry}
+\usepackage[utf8]{vietnam}
+\usepackage{amsfonts,amsmath,amsthm,amssymb} % math
+\usepackage{enumitem,booktabs,multicol,multirow,longtable} % layout
+\usepackage{graphicx,xcolor} % graphing
+\usepackage{stackengine}
+\usepackage[hidelinks,unicode]{hyperref}
+
+% Spacing
+\renewcommand{\baselinestretch}{1.1}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\newcommand\tabularrowheight[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% Numbering style
+\theoremstyle{definition}
+\newtheorem{definition}{Định nghĩa}[section]
+\newtheorem{example}{Ví dụ}[section]
+\newtheorem{remark}{Nhận xét}[section]
+\numberwithin{equation}{section}
+
+% Set images' path
+\graphicspath{ {images/} }
+
+% Equations prefer
+\everymath{\displaystyle}

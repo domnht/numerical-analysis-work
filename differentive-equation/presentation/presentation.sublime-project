@@ -6,6 +6,6 @@
 		}
 	],
 	"settings": {
-		"TEXroot": "main.tex"
+		"TEXroot": "presentation.tex"
 	}
 }

@@ -1,0 +1,177 @@
+\section{Phương pháp Euler và Euler cải tiến}
+
+\begin{frame}
+	\subsection{Phương pháp Euler}
+	\frametitle{Phương pháp Euler}
+
+	Xét bài toán Cauchy
+	\begin{equation}\label{eqn:eqn615}
+		y'=f(x,y),~y(x_0)=y_0
+	\end{equation}
+
+	Giả sử hàm $f$ thỏa mãn điều kiện $$|f(x,y_1)-f(x,y_2)|\leqslant L|{y_1}-{y_2}|$$
+	và $\left|\frac{\mathrm{d}f}{\mathrm{d}x}\right|=\left|\frac{\partial f}{\partial x}+f\frac{\partial f}{\partial y}\right|\leqslant M$ trong hình chữ nhật:
+	$$D=\left\{(x,y)\in\mathbb{R}^2\Big||x-x_0|\leqslant a,|y-y_0|\leqslant b\right\}$$
+\end{frame}
+\begin{frame}
+	\frametitle{Phương pháp Euler}
+	Giả sử $x_0$ là giá trị ban đầu và $h$ là số dương cho trước đủ nhỏ với $x_i=x_0+ih$, với $i=0, 1, 2, \ldots, h$ được gọi là độ dài bước.\par
+	(\ref{eqn:eqn615}) tương đương với $\mathrm{d}y=f\left(x,y\right)\mathrm{d}x$, lấy tích phân hai vế ta được:
+	\begin{center}
+		$\int\limits_{y_0}^{y_1}\mathrm{d}y=\int\limits_{x_0}^{x_1}\mathrm{d}x$ hay $y_1=y_0+\int\limits_{x_0}^{x_1} f(x,y)\mathrm{d}x$
+	\end{center}
+\end{frame}
+\begin{frame}
+	\frametitle{Phương pháp Euler}
+	Giả sử $f(x,y)\approx f\left(x_0,y_0\right)$ với $x_0\leqslant x\leqslant x_1$, khi đó:
+	\begin{center}
+		$y_1\approx y_0+f\left(x_0,y_0\right)\left(x_1-x_0\right)$ hay $y_1\approx y_0+hf\left(x_0,y_0\right)$
+	\end{center}
+	Tương tự, với $x_1\leqslant x\leqslant x_2$, ta có $y_2\approx y_1+hf\left(x_1,y_1\right)$.\\
+	Từ đó, ta có công thức tổng quát:
+	\begin{block}{Phương pháp Euler}
+		\begin{equation}\label{eqn:eqn616}
+			y_{n+1}=y_n+hf\left(x_n,y_n\right), n=0,~1,~2,~\ldots
+		\end{equation}
+	\end{block}
+	% Công thức (\ref{eqn:eqn616}) được gọi là phương pháp Euler.
+\end{frame}
+\begin{frame}
+	\frametitle{Ví dụ}
+	\textbf{Ví dụ 6.7} \textit{(Trang 127)} Bằng phương pháp Euler, giải phương trình gần đúng phương trình:
+	$$y'=2xy+\mathrm{e}^{x^2},y(0)=1$$
+	trong đoạn $[0;1.5]$, so sánh với nghiệm chính xác $\varphi(x)=(x+1)\mathrm{e}^{x^2}$ của phương trình.\par
+\end{frame}
+\begin{frame}
+	\frametitle{Ví dụ: $y'=2xy+\mathrm{e}^{x^2},y(0)=1$}
+	\textbf{Giải}\par
+	Với $x_0=0,~y_0=1$, chọn $h=0.25$.\par
+	Áp dụng công thức (\ref{eqn:eqn616}), ta có bảng giá trị:
+	\begin{table}\begin{tabular}{|c|c|c|c|}\hline
+		$n$ & $x_n$  & $y_n$     & $\varphi(x_n)$ \\\hline
+		$0$ & $0.0$  & $1.0$     & $1.0$     \\\hline
+		$1$ & $0.25$ & $1.25$    & $1.3306$  \\\hline
+		$2$ & $0.5$  & $1.6724$  & $1.926$   \\\hline
+		$3$ & $0.75$ & $2.4115$  & $3.0713$  \\\hline
+		$4$ & $1.0$  & $3.7545$  & $5.4366$  \\\hline
+		$5$ & $1.25$ & $6.3114$  & $10.7341$ \\\hline
+		$6$ & $1.5$  & $11.4487$ & $23.7193$ \\\hline
+	\end{tabular}\end{table}
+\end{frame}
+\begin{frame}
+	\frametitle{Ví dụ: $y'=2xy+\mathrm{e}^{x^2},y(0)=1$}
+	Nếu chọn $h=0.1$, ta cũng có bảng giá trị:
+	% {\centering\textit{\color{red}Bảng trang 128}\par}
+	\begin{table}\begin{tabular}{|c|c|c|c||c|c|c|c|}\hline
+		$n$ & $x_n$ & $y_n$    & $\varphi(x_n)$ & $n$  & $x_n$ & $y_n$     & $\varphi(x_n)$ \\\hline
+		$0$ & $0.0$  & $1.0$   & $1.0$          & $8$  & $0.8$ & $3.0338$  & $3.4137$       \\\hline
+		$1$ & $0.1$ & $1.1$    & $1.1111$       & $9$  & $0.9$ & $3.7088$  & $4.271$        \\\hline
+		$2$ & $0.2$ & $1.223$  & $1.249$        & $10$ & $1.0$ & $4.6012$  & $5.4366$       \\\hline
+		$3$ & $0.3$ & $1.376$  & $1.4224$       & $11$ & $1.1$ & $5.7933$  & $7.0423$       \\\hline
+		$4$ & $0.4$ & $1.568$  & $1.6429$       & $12$ & $1.2$ & $7.4031$  & $9.2855$       \\\hline
+		$5$ & $0.5$ & $1.8108$ & $1.926$        & $13$ & $1.3$ & $9.602$   & $12.4648$      \\\hline
+		$6$ & $0.6$ & $2.1203$ & $2.2933$       & $14$ & $1.4$ & $12.6404$ & $17.0384$      \\\hline
+		$7$ & $0.7$ & $2.518$  & $2.7749$       & $15$ & $1.5$ & $16.8897$ & $23.7193$      \\\hline
+	\end{tabular}\end{table}
+\end{frame}
+\begin{frame}
+	\frametitle{Ví dụ}
+	\textbf{Ví dụ 6.8} \textit{(Trang 128)} Bằng phương pháp Euler, giải gần đúng phương trình vi phân:
+	$$y'+2y=2-{\mathrm{e}^{-4x}},y(0)=1$$
+	với $h=0.1$ cho trước.\par
+\end{frame}
+\begin{frame}\small
+	\frametitle{Ví dụ: $y'+2y=2-{\mathrm{e}^{-4x}},y(0)=1$}
+	\textbf{Giải}\par
+	Phương trình vi phân đã cho có nghiệm chính xác là:
+	$$y=1+\frac{1}{2}{\mathrm{e}^{-4x}}-\frac{1}{2}{\mathrm{e}^{-2x}}$$
+	Phương trình vi phân đã cho tương đương với: $$y'=2-\mathrm{e}^{-4x}-\frac12\mathrm{e}^{-2x}-2y$$
+	Với $x_0=0,~y_0=1$ và $h=0.1$. Khi đó ta có bảng giá trị:
+	% {\centering\textit{\color{red}Bảng trang 129}\par}
+	\begin{center}\begin{tabular}{|c|c|c|c|}\hline
+		$n$ & $x_n$ & $y_n$      & $\varphi(x_n)$ \\\hline
+		$0$ & $0.0$ & $1.0$      & $1.0$      \\\hline
+		$1$ & $0.1$ & $0.9$      & $0.925795$ \\\hline
+		$2$ & $0.2$ & $0.852968$ & $0.889504$ \\\hline
+		$3$ & $0.3$ & $0.837441$ & $0.876191$ \\\hline
+		$4$ & $0.4$ & $0.839834$ & $0.876284$ \\\hline
+		$5$ & $0.5$ & $0.851677$ & $0.883728$ \\\hline
+	\end{tabular}\end{center}
+\end{frame}
+\begin{frame}
+	\frametitle{Ví dụ: $y'+2y=2-{\mathrm{e}^{-4x}},y(0)=1$}
+	Nếu ta thay đổi độ dài bước lần lượt là $h=0.05,~h=0.01,~h=0.005$ và $h=0.001$, ta có bảng giá trị của nghiệm gần đúng và nghiệm chính xác tại các thời điểm $x=1;x=2;x=3;x=4$ và $x=5$ là:
+	% {\centering\textit{\color{red}Bảng trang 129}\par}
+	\begin{table}\small
+		\begin{tabular}{|c|c|c|c|c|c|}\hline
+			\multirow{2}{*}{$x$} & \multirow{2}{*}{$\varphi(x)$} & \multicolumn{4}{c|}{Nghiệm gần đúng}\\\cline{3-6}
+			&&$h=0.05$&$h=0.01$&$h=0.005$&$h=0.001$\\\hline
+			$1$&$0.9414902$&$0.9364698$&$0.9404994$&$0.9409957$&$0.9413914$\\\hline
+			$2$&$0.9910099$&$0.9911126$&$0.9910193$&$0.9910139$&$0.9910106$\\\hline
+			$3$&$0.9987637$&$0.9988982$&$0.9987890$&$0.9987763$&$0.9987662$\\\hline
+			$4$&$0.9998323$&$0.9998657$&$0.9998390$&$0.9998357$&$0.9998330$\\\hline
+			$5$&$0.9999773$&$0.9999837$&$0.9999786$&$0.9999780$&$0.9999774$\\\hline
+		\end{tabular}
+	\end{table}
+\end{frame}
+\begin{frame}
+	\frametitle{Sai số phương pháp}
+	Phần trăm sai số giữa nghiệm chính xác và nghiệm gần đúng được xác định bởi:\par
+	\begin{equation}\label{eqn:eqn617}
+		P=\frac{|n_\text{\tiny chính xác}-n_\text{\tiny gần đúng}|}{n_\text{\tiny chính xác}}\times 100\%
+	\end{equation}
+
+	Áp dụng (\ref{eqn:eqn617}), ta có bảng tính toán phần trăm sai số giữa nghiệm chính xãc và nghiệm gần đúng:
+	% {\centering\textit{\color{red}Bảng trang 130}\par}
+	\begin{table}\begin{tabular}{|c|c|c|c|c|}\hline
+		$x$&$h=0.05$&$h=0.01$&$h=0.005$&$h=0.001$\\\hline
+		$1$ & $0.53\%$ & $0.105\%$ & $0.053\%$ & $0.0105\%$ \\\hline
+		$2$ & $0.01\%$ & $0.0094\%$ & $0.00041\%$ & $0.00007\%$ \\\hline
+		$3$ & $0.013\%$ & $0.0025\%$ & $0.0013\%$ & $0.00025\%$ \\\hline
+		$4$ & $0.0033\%$ & $0.00067\%$ & $0.00034\%$ & $0.000067\%$ \\\hline
+		$5$ & $0.00064\%$ & $0.00013\%$ & $0.000068\%$ & $0.000014\%$ \\\hline
+	\end{tabular}\end{table}
+\end{frame}
+\begin{frame}
+	\frametitle{Nhận xét}
+	% \textbf{Nhận xét 6.1}\par
+	\begin{itemize}
+		\item Nếu độ dài bước $h$ càng nhỏ, sai số giữa nghiệm gần đúng và nghiệm chính xác càng nhỏ.
+		\item Nói chung sai số giữa nghiệm gần đúng và nghiệm chính xác sẽ tăng nếu giá trị $x$ tăng.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\subsection{Phương pháp Euler cải tiến}
+	\frametitle{Phương pháp Euler cải tiến}
+	Trong phương pháp Euler cải tiến (thứ nhất), giá trị tiếp theo của nghiệm $y_{n+1}$ được tính thông qua việc tính toán các giá trị trung gian $x_{n+\frac12}$, $y_{n+\frac12}$ và $f_{n+\frac12}$:\par
+	\begin{block}{Phương pháp Euler cải tiến thứ nhất}
+	\begin{equation}\label{eqn:eqn618}\begin{cases}
+		x_{n+\frac12}&=x_n+\frac h2\\
+		y_{n+\frac12}&=y_n+\frac h2f_n\\
+		f_{n+\frac12}&=f\left(x_n+\frac h2, y_n+\frac h2f_n\right)\\
+		y_{n+1}&=y_n+hf_{n+\frac12}
+	\end{cases}\end{equation}
+	\end{block}
+\end{frame}
+\begin{frame}
+	\frametitle{Ví dụ}
+	\textbf{Ví dụ 6.9} \textit{(Trang 130)} Áp dụng phương pháp Euler cải tiến thứ nhất, giải phương trình vi phân sau:
+	$$y'=\frac{2y}{x}+x,y(1)=1$$
+	trên đoạn $[1;1.4]$ và độ dài bước $h=0.1$.\par
+\end{frame}
+\begin{frame}
+	\frametitle{Ví dụ: $y'=\frac{2y}{x}+x,y(1)=1$}
+	\textbf{Giải}\par
+	Phương trình đã cho có nghiệm gần đúng là $\varphi(x)=x^2+x^2\ln x$.\par
+	Đặt $f(x,y)=\frac{2y}{x}+x$, ta có bảng giá trị:\par
+	% {\centering\textit{\color{red}Bảng trang 131}\par}
+	\begin{table}\begin{tabular}{|c|c|c|c|}\hline
+		$n$ & $x_n$ & $y_n$      & $\varphi(x_n)$ \\ \hline
+		$0$ & $1.0$ & $1.0$      & $1.0$          \\ \hline
+		$1$ & $1.1$ & $1.324048$ & $1.325325$     \\ \hline
+		$2$ & $1.2$ & $1.699816$ & $1.702543$     \\ \hline
+		$3$ & $1.3$ & $2.12905$  & $2.133396$     \\ \hline
+		$4$ & $1.4$ & $2.613357$ & $2.619486$     \\ \hline
+	\end{tabular}\end{table}
+\end{frame}

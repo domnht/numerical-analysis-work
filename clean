@@ -11,8 +11,11 @@ find * -name '*.gz' -delete
 find * -name '*.lof' -delete
 find * -name '*.log' -delete
 find * -name '*.lot' -delete
+find * -name '*.nav' -delete
 find * -name '*.out' -delete
+find * -name '*.snm' -delete
 find * -name '*.swp' -delete
 find * -name '*.toc' -delete
 find * -name '*.xml' -delete
+find * -name '*.sublime-workspace' -delete
 echo "All done!"

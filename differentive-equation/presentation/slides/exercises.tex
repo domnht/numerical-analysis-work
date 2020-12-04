@@ -1,0 +1,59 @@
+\section{Bài tập}
+\begin{frame}
+	\frametitle{Bài tập}
+	Tìm nghiệm gần đúng của các phương trình sau bằng phương pháp Euler, Euler cải tiến, nội suy Adams và ngoại suy Adams tương ứng với $k=4$ và $k=3$ biết các giá trị đầu tiên được tìm bằng phương pháp RK4.\par
+	$y'=x-y$, $y(0)=1$, $h=0.1$ trên đoạn $[0;1]$ \\
+	\textit{(Câu 7b, trang 146)}\par
+\end{frame}
+
+\begin{frame}
+	\frametitle{$y'=x-y$, $y(0)=1$, $h=0.1$ trên $[0;1]$}
+	$\star$~\textbf{Phương pháp Euler}
+	\begin{table}\footnotesize\begin{tabular}{|c|c|c|c|c|}\hline
+		$n$ & $x_n$ & $y_n$ & $y_n$ (Euler cải tiến 1) & $y_n$(Euler cải tiến 2) \\ \hline
+		$0$ & $0.0$ & $1.0$ & $1.0$ & $1.0$ \\ \hline
+		$1$ & $0.1$ & $0.9$ & $0.91$ & $0.91$ \\ \hline
+		$2$ & $0.2$ & $0.82$ & $0.83805$ & $0.8385$ \\ \hline
+		$3$ & $0.3$ & $0.758$ & $0.78243525$ & $0.783675$ \\ \hline
+		$4$ & $0.4$ & $0.7122$ & $0.741603901$ & $0.74388125$ \\ \hline
+		$5$ & $0.5$ & $0.68098$ & $0.714151531$ & $0.717638188$ \\ \hline
+		$6$ & $0.6$ & $0.662882$ & $0.698807135$ & $0.703612178$ \\ \hline
+		$7$ & $0.7$ & $0.6565938$ & $0.694420457$ & $0.700601879$ \\ \hline
+		$8$ & $0.8$ & $0.66093442$ & $0.699950514$ & $0.707525064$ \\ \hline
+		$9$ & $0.9$ & $0.674840978$ & $0.714455215$ & $0.723406762$ \\ \hline
+		$10$ & $1.0$ & $0.69735688$ & $0.73708197$ & $0.74736858$ \\ \hline
+	\end{tabular}\end{table}
+\end{frame}
+
+\begin{frame}
+	\frametitle{$y'=x-y$, $y(0)=1$, $h=0.1$ trên $[0;1]$}
+	$\star$~\textbf{Phương pháp nội suy Adams}\par
+	Ta lập được bảng tính toán nghiệm gần đúng theo phương pháp nội suy Adams với $k=4$ như sau:
+	\begin{table}\begin{tabular}{|c|c|c|c|}\hline
+		$i$&$x_i$&Adams      &RK4\\ \hline
+		4  &0.4 &0.740640480 &0.740640578\\ \hline
+		5  &0.5 &0.713061780 &0.713061869\\ \hline
+		6  &0.6 &0.697623789 &0.697623869\\ \hline
+		7  &0.7 &0.693171165 &0.693171237\\ \hline
+		8  &0.8 &0.698658514 &0.698658579\\ \hline
+		9  &0.9 &0.713139923 &0.713139982\\ \hline
+		10 &1.0 &0.735759495 &0.735759549\\ \hline
+	\end{tabular}\end{table}
+\end{frame}
+
+\begin{frame}
+	\frametitle{$y'=x-y$, $y(0)=1$, $h=0.1$ trên $[0;1]$}
+	$\star$~\textbf{Phương pháp ngoại suy Adams}\par
+	Ta có: $y'=x-y$, $y(0)=1$, $h=0.1$\par
+	Ta lập được bảng tính toán nghiệm gần đúng theo phương pháp ngoại suy Adams với $k=3$ như sau:
+	\begin{table}\begin{tabular}{|c|c|c|c|}\hline
+	$i$&$x_i$&Adams&RK4\\ \hline
+	4  &0.4 &0.740646198 &0.740640578\\ \hline
+	5  &0.5 &0.713066954 &0.713061869\\ \hline
+	6  &0.6 &0.697628470 &0.697623869\\ \hline
+	7  &0.7 &0.693175401 &0.693171237\\ \hline
+	8  &0.8 &0.698662347 &0.698658579\\ \hline
+	9  &0.9 &0.713143391 &0.713139982\\ \hline
+	10 &1.0 &0.735762633 &0.735759549\\ \hline
+	\end{tabular}\end{table}
+\end{frame}

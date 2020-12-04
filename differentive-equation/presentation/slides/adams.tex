@@ -1,0 +1,172 @@
+\section{Phương pháp Adams}
+
+\begin{frame}
+	\frametitle{Phương pháp Adams}
+	Giả sử $y(x)$ là nghiệm của bài toán Cauchy (\ref{eqn:eqn603}) – (\ref{eqn:eqn604}) và $y_m$, $y_{m-1}$, \ldots, $y_{m-k}$ là các nghiệm gần đúng của bài toán tại các điểm nút $x_m$, $x_{m-1}$, \ldots, $x_{m-k}$, với $x_{m-i}=x_m-ih$, $i=0,1,\ldots,k$ và $h$ là độ dài bước, nghĩa là $y(x_{m-i})\approx y_{m-i}$.\par
+	Ký hiệu: $f_i=f(x_i,y_i)$, $i=m,m-1,\ldots m-k$.
+\end{frame}
+
+\begin{frame}
+	\frametitle{Phương pháp Adams}
+	Gọi $P(x)$ là đa thức nội suy nhận các giá trị tại các mốc nội suy $x_m$, $x_{m-1}$, \ldots, $x_{m-k}$, khi đó:
+	$$P(x)=\sum\limits_{i=0}^{k}f_{m-i}P_{i}(x)$$
+	Đổi biến số: $x-x_m=th$ thì $P_i(x)$ trở thành $Q_i(t)$, khi đó từ công thức
+	$$y\left(x_{m+1}\right)= y(x_m) + \int\limits_{x_m}^{x_{m+1}} f\big(x, y(x)\big)\mathrm{d}x$$
+\end{frame}
+
+\begin{frame}
+	\frametitle{Phương pháp Adams}
+	ta có thể tính
+	\begin{equation}\label{eqn:eqn627}
+		y_{m+1}=y_m+\int\limits_{x_m}^{x_{m+1}} P(x)\mathrm{d}x=y_m+h\sum\limits_{i=0}^{k}\beta_i f_{m-i}
+	\end{equation}
+	trong đó $\beta_i=\int\limits_0^1Q_i(t)\mathrm{d}t$.
+	(\ref{eqn:eqn627}) được gọi là công thức ngoại suy Adams. Nếu trong quá trình xây dựng đa thức nội suy, ta sử dụng cả giá trị $f_{m+1}$ thì công thức xây dựng được công thức ngoại suy:
+	\begin{equation}\label{eqn:eqn628}
+		y_{m+1}=y_m+h\sum\limits_{i=-1}^{k}\gamma_i f_{m-i}
+	\end{equation}
+\end{frame}
+
+\begin{frame}
+	\subsection{Công thức ngoại suy Adams}
+	\frametitle{Công thức ngoại suy Adams}
+	Giả sử trong công thức (\ref{eqn:eqn627}), ta xây dựng $P(x)$ là đa thức nội suy Newton cuối bảng (dạng lùi), nghĩa là:
+	\begin{multline*}
+		P(x)=f_m+\frac{t}{1!}\Delta f_{m-1}+\frac{t(t+1)}{2!}\Delta^2 f_{m-2}+\ldots+\\
+		+\frac{t(t+1)(t+2)\ldots (t+k-1)}{k!}\Delta^k f_{m-k}
+	\end{multline*}
+	Từ đó:
+	\begin{multline*}
+		y_{m+1}=y_m+h\int\limits_{0}^{1} \bigg(f_m+\frac{t}{1!}\Delta f_{m-1}+\frac{t(t+1)}{2!}\Delta^2 f_{m-2}+\ldots+\\
+		+\frac{t(t+1)(t+2)\ldots (t+k-1)}{k!}\Delta^k f_{m-k}\bigg)\mathrm{d}t
+	\end{multline*}
+	\end{frame}
+
+	\begin{frame}
+	\frametitle{Công thức ngoại suy Adams}
+	Vậy:
+	\begin{align*}
+		y_{m+1}&=y_m+h\left(f_m+a_1\Delta f_{m-1}+a_2\Delta^2 f_{m-2}+\ldots+a_k\Delta^k f_{m-k}\right)\\
+		       &=y_m+h\sum_{i=0}^k a_i\Delta^i f_{m-i}
+	\end{align*}
+	trong đó $a_i=(-1)^i\int\limits_{0}^{1}\left(C_{-t}^i\right)\mathrm{d}t$
+
+	Ta có bảng giá trị một số các $a_i$:
+	\begin{table}\begin{tabular}{|c|c|c|c|c|c|c|c|c|}\hline
+		$i$&0&1&2&3&4&5&6&7\\
+		\hline\tabularrowheight{24pt}
+		$a_i$&1&$\frac{1}{2}$&$\frac{5}{12}$&$\frac{3}{8}$&$\frac{251}{720}$&$\frac{95}{288}$&$\frac{19087}{60480}$&$\frac{5257}{17280}$\\
+		\hline
+	\end{tabular}\end{table}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Công thức ngoại suy Adams}
+	Nếu $k=1$:
+	$$y_{m+1}=y_m+h\left(f_m+a_1\Delta f_{m-1}\right)=y_m+\frac{h}{2}\left(3f_m-f_{m-1}\right)$$
+	Nếu $k=2$:
+	\begin{align*}
+		y_{m+1}&=y_m+h\left(f_m+a_1\Delta f_{m-1}+a_2\Delta f_{m-2}\right)\\
+		       &=y_m+\frac{h}{12}\left(23f_m-16f_{m-1}+5f_{m-2}\right)
+	\end{align*}
+	Nếu $k=3$:
+	\begin{align*}
+		y_{m+1}&=y_m+h\left(f_m+a_1\Delta f_{m-1}+a_2\Delta f_{m-2}+a_3\Delta f_{m-3}\right)\\
+		       &=y_m+\frac{h}{24}\left(55f_m-59f_{m-1}+37f_{m-2}-9f_{m-3}\right)
+	\end{align*}
+\end{frame}
+
+\begin{frame}
+	\subsection{Công thức nội suy Adams}
+	\frametitle{Công thức nội suy Adams}
+	Nếu bắt đầu mốc nội suy $x_{m+1}$ thì
+	\begin{multline*}
+		P(x)=f_{m+1}+\frac{t}{1!}\Delta f_m+\frac{t(t+1)}{2!} \Delta^2 f_{m-1}+\ldots+\\
+		+\frac{t(t+1)(t+2)\ldots(t+k-1)}{k!} \Delta^k f_{m-k+1}
+	\end{multline*}
+	Do đó
+	$$\begin{array}{rcl}
+		y_{m+1} & = & y_m+\int\limits_{x_m}^{x_{m+1}} P(x)\mathrm{d}x\\
+		        & = & y_m+h\int\limits_{-1}^{0}\bigg(f_{m+1}+\frac{t}{1!}\Delta f_m+\frac{t(t+1)}{2!} \Delta^2 f_{m-1}+\ldots+\\
+		        &   &+\frac{t(t+1)(t+2)\ldots(t+k-1)}{k!} \Delta^k f_{m-k+1}\bigg)\mathrm{d}t
+	\end{array}$$
+\end{frame}
+
+\begin{frame}
+	\frametitle{Công thức nội suy Adams}
+	Vậy
+	\begin{align*}
+		y_{m+1}&=y_m+h(f_{m+1}+b_1 \Delta f_m+b_2 \Delta^2 f_{m-1}+\ldots+b_k \Delta^k f_{m-k+1})\\
+		       &=y_m+h\sum\limits_{i=0}^{k} b_i\Delta^i f_{m-i+1}
+	\end{align*}
+	trong đó $b_i=(-1)^i\int\limits_{-1}^{0} \left(C_{-i}^i\right)\mathrm{d}t$.\par
+	Ta có bảng giá trị một số các $b_i$:
+	\begin{center}\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+		$i$   & $0$ & $1$        & $2$             & $3$             & $4$               & $5$              & $6$\\\hline
+		\tabularrowheight{24pt}
+		$b_i$ & $1$ & $-\frac12$ & $-\frac{1}{12}$ & $-\frac{1}{24}$ & $-\frac{19}{720}$ & $-\frac{3}{160}$ & $-\frac{863}{60480}$\\\hline
+	\end{tabular}\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Công thức nội suy Adams}
+	Nếu $k=2$:
+	$$y_{m+1}=y_m+h(f_{m+1}+b_1\Delta f_m+b_2\Delta f_{m-1})=y_m+\frac{h}{12}(5f_{m+1}+8f_m-f_{m-1})$$
+
+	Nếu $k=3$:
+	\begin{align*}
+		y_{m+1}&=y_m+h(f_{m+1}+b_1\Delta f_m+b_2\Delta f_{m-1}+b_3\Delta f_{m-2})\\
+		       &=y_m+\frac{h}{24}(9f_{m+1}+19f_m-5f_{m-1}+f_{m-2})
+	\end{align*}
+
+	Nếu $k=4$:
+	$$y_{m+1}=y_m+\frac{h}{720}(251f_{m+1}+646f_m-264f_{m-1}+106f_{m-2}-19f_{m-3})$$
+\end{frame}
+
+\begin{frame}
+	\frametitle{Ví dụ}
+	\textbf{Ví dụ 6.13.} \textit{(Trang 143)} Bằng phương pháp ngoại suy Adams ứng với $k=3$, giải gần đúng phương trình: $y'=f(x,y)=y-x^2$ biết $y(0)=1$ và độ dài bước $h=0,1$.
+\end{frame}
+
+\begin{frame}
+	\frametitle{Ví dụ: $y'=f(x,y)=y-x^2$, $y(0)=1$}
+	\textbf{Giải}\par
+	Công thức ngoại suy Adams ứng với $k=3$:\\
+	$$y_{m+1}=y_m+\frac{h}{24} (55f_m-59f_{m-1}+37f_{m-2}-9f_{m-3})$$
+	nghĩa là:
+	$$y_4=y_3+\frac{h}{24} (55f_3-59f_2+37f_1-9f_0)$$
+	trong đó các giá trị $f_i(x_i,y_i)$, $i=0,1,2,3$ và $y_i\approx y(x_i)$ được tính bằng phương pháp RK4 với các $x_0=0$, $x_1=0.1$, $x_2=0.2$, $x_3=0.3$.
+\end{frame}
+
+\begin{frame}\small
+	\frametitle{Ví dụ: $y'=f(x,y)=y-x^2$, $y(0)=1$}
+	\begin{center}
+	$f(0,1)          =1$\\
+	$f(0.1,1.104829) =1.094829$\\
+	$f(0.2,1.218597) =1.178597$\\
+	$f(0.3,1.3402141)=1.250141$
+	\end{center}
+	Vậy,
+	\begin{align*}
+		y_4&=y_3+\frac{h}{24}(55f_3-59f_2+37f_1-9f_0)\\
+		   &=1.340141+\frac{0.1}{24}\big[55(1.250141)-59(1.178597)+37(1.094829)-9\big]\\
+		   &=1.468179
+	\end{align*}
+	$\star$ Nghiệm chính xác của phương trình đã cho là $\varphi(x)=2+2x+x^2-\mathrm{e}^{x}$\par
+\end{frame}
+
+\begin{frame}
+	\frametitle{Công thức nội suy Adams}
+	Ta có thể so sánh nghiệm gần đúng khi giải phương trình đã cho bằng phương pháp RK4 và phương pháp nội suy Adams với $k=3$ với nghiệm chính xác của phương trình theo bảng sau:\par
+
+	\begin{table}\begin{tabular}{|c|c|c|c|c|}\hline
+		$i$  & $x_i$ & Adams         & RK4           & $\varphi(x_i)$ \\ \hline
+		$4$  & $0.4$ & $1.468179116$ & $1.468174786$ & $1.468175302$  \\ \hline
+		$5$  & $0.5$ & $1.601288165$ & $1.601278076$ & $1.601278729$  \\ \hline
+		$6$  & $0.6$ & $1.737896991$ & $1.737880409$ & $1.7378812$    \\ \hline
+		$7$  & $0.7$ & $1.876270711$ & $1.876246365$ & $1.876247293$  \\ \hline
+		$8$  & $0.8$ & $2.014491614$ & $2.014458009$ & $2.014459072$  \\ \hline
+		$9$  & $0.9$ & $2.150440205$ & $2.150395695$ & $2.150396889$  \\ \hline
+		$10$ & $1.0$ & $2.281774162$ & $2.281716852$ & $2.281718172$  \\ \hline
+	\end{tabular}\end{table}
+\end{frame}

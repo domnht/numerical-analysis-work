@@ -1,0 +1,55 @@
+\section{Một số khái niệm PTVPT}
+
+\begin{frame}
+	\frametitle{Một số khái niệm}
+	\textbf{Định nghĩa 6.1.} Phương trình vi phân thường cấp $n$ là phương trình có dạng:
+	\begin{equation}\label{eqn:eqn601}
+		F\left(x,y,y'(x), y''(x),\ldots, y^{(n)}(x) \right) = 0
+	\end{equation}
+	trong đó $x$ là biến số độc lập, $y=y(x)$ là hàm số phải tìm và $y'(x)$, $y''(x)$, \ldots, $y^{(n)}(x)$ là các đạo hàm của hàm số $y=y(x)$.
+	\begin{itemize}
+		\item \textbf{Cấp} của phương trình là cấp của đạo hàm cao nhất có mặt trong phương trình.
+		\item \textbf{Nghiệm} của phương trình là mọi hàm số $y=y(x)$ thỏa mãn phương trình (\ref{eqn:eqn601}).
+		\item \textbf{Giải} phương trình vi phân thường là tiến hành tìm tất cả các nghiệm của phương trình vi phân đó.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Một số khái niệm}
+	\textbf{Định nghĩa 6.2.} Xét phương trình vi phân cấp $n$ có dạng:
+	\begin{equation}\label{eqn:eqn602}
+		y^{(n)}(x)=f\left(x,y(x),y'(x),~\ldots,~y^{(n-1)}(x)\right)
+	\end{equation}
+	Bài toán Cauchy đối với phương trình vi phân (\ref{eqn:eqn602}) là tìm hàm $y=y(x)$ thỏa mãn phương trình (\ref{eqn:eqn602}) và các điều kiện ban đầu:
+	$$y(x_0)=y_0,~y'(x_0)=y'_0,~\ldots;~y^{(n-1)}(x_0)=y^{(n-1)}_0$$
+\end{frame}
+
+\begin{frame}
+	\frametitle{Một số khái niệm}
+	Bài toán Cauchy đối với phương trình vi phân cấp 1 là bài toán tìm nghiệm $y=y(x)$ của phương trình\\
+	\begin{equation}\label{eqn:eqn603}
+		y'=f(x,y)
+	\end{equation}
+	thỏa mãn điều kiện ban đầu
+	\begin{equation}\label{eqn:eqn604}
+		y(x_0)=y_0
+	\end{equation}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Một số khái niệm}
+	Phương trình vi phân (\ref{eqn:eqn603}) tương đương với phương trình tích phân:
+	\begin{equation}\label{eqn:eqn605}
+		y(x)= y_0 + \int\limits_{x_0}^{x} f\big(s, y\left(s\right)\big)\mathrm{d}s
+	\end{equation}
+	theo nghĩa mọi nghiệm của phương trình (\ref{eqn:eqn603}) là nghiệm liên tục của (\ref{eqn:eqn605}) và ngược lại.
+\end{frame}
+
+\begin{frame}
+	Báo cáo này sẽ trình bài ba phương pháp sau:\par
+	\begin{itemize}
+		\item Phương pháp Euler và Euler cải tiến 1.
+		\item Phương pháp Runge – Kutta.
+		\item Phương pháp Adams, gồm: Công thức nội suy Adams và Công thức ngoại suy Adams.
+	\end{itemize}
+\end{frame}
