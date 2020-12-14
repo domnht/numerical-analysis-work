@@ -1,0 +1,377 @@
+\chapter{Giải tích số trong đại số tuyến tính}
+
+\textbf{Bài 3} Giải hệ phương trình $Ax=b $ bằng phương pháp lặp đơn với sai số $10^{-3}$:\par
+
+d) $A=\begin{pmatrix}
+10,9&1,2&2,1&0,9\\
+1,2&11,2&1,5&2,5\\
+2,1&1,5&9,8&1,3\\
+0,9&2,5&1,3&21,1\\
+\end{pmatrix}$, $b= \begin{pmatrix}
+-7\\
+5,3\\
+10,3\\
+24,6\\
+\end{pmatrix}$\par
+
+e) $A=\begin{pmatrix}
+20,9&1,2&2,1&0,9\\
+1,2&21,2&1,5&2,5\\
+2,1&1,5&19,8&1,3\\
+0,9&2,5&1,3&32,1\\
+\end{pmatrix}$,~$b= \begin{pmatrix}
+-7\\
+5,3\\
+10,3\\
+24,6\\
+\end{pmatrix}$\par
+
+f) $A= \begin{pmatrix}
+1&2&3&14\\
+3&-2&18&4\\
+22&1&-4&7\\
+4&21&-8&-4\\
+\end{pmatrix}$,~$b= \begin{pmatrix}
+20\\
+26\\
+10\\
+2\\
+\end{pmatrix}$\par
+
+\textbf{Giải}\par
+
+d)~Ta có bảng sau:
+\begin{longtable}{|Sc|c|c|c|c|}\hline
+&i=1&i=2&i=3&i=4\\ \hline
+\endhead
+$\left|a_{ii} \right|$&10,9&11,2&9,8&21,1\\ \hline
+$\sum\limits_{j=1, j\neq i}^{4} \left|a_{ij}\right|$&4,2&5,2&4,9&4,7\\ \hline
+\end{longtable}
+
+Từ đây suy ra hệ phương trình $Ax=b$ có thể đưa về dạng $x=Bx+g$ sao cho $\left\|B\right\|_{\infty} <1$.
+Ta tìm được ma trận $B$ và $g$ như sau:\\
+\begin{small}
+$B=\begin{pmatrix}
+0&-0,110091743119266&-0,192660550458716&-0,0825688073394495\\
+-0,107142857142857&0&-0,133928571428571&-0,223214285714286\\
+-0,214285714285714&-0,153061224489796&0&-0,13265306122449\\
+-0,042654028436019&-0,118483412322275&-0,0616113744075829&0\\
+\end{pmatrix}$
+\end{small}
+$g=\begin{pmatrix}
+-0,642201834862385\\
+0,473214285714286\\
+1,05102040816327\\
+1,16587677725118\\
+\end{pmatrix}$\par
+
+Xét $\left\|B \right\|_{\infty} =\underset{1\leqslant i \leqslant 4}\max \sum\limits_{j=1}^{4}{\left\|b_{ij}\right\|}= 0,5<1$ nên ma trận $B$ thỏa điều kiện hội tụ.\par
+
+Ta có $\frac{\left\|B\right\|_{\infty} }{ 1-\left\|B\right\|_{\infty }}= 1$ và chọn $x^{(0)}=g$, ta xây dựng dãy $\left\{x^{(k)}\right\}$ theo công thức $x^{(k+1)}=Bx^{(k)}+g $, đồng thời đánh giá sai số của phương pháp, ta có kết quả sau:
+
+\begin{longtable}{|c|Sc|Sc|}\hline
+$k$&$x^{(k)}=Bx^{(k-1)}+g$&$\left\|x^{(k)}-x^*\right\|_{\infty}=\frac{\left\|B\right\|_{\infty}}{1-\left\|B\right\|_{\infty}}\left\|x^{(k)}-x^{(k-1)}\right\|_{\infty}$\\\hline
+\endhead
+1&$\begin{pmatrix}-0,993054045828079\\0,14101961129125\\0,961547205531943\\1,07244641736863\\\end{pmatrix}$&0,350852210965694\\\hline
+2&$\begin{pmatrix}-0,931529765210858\\0,211448928863767\\1,09996976905335\\1,1322838031197\\\end{pmatrix}$&0,138422563521411\\\hline
+3&$\begin{pmatrix}-0,970892720408834\\0,172961746149442\\1,0680683846522\\1,11278643444365\\\end{pmatrix}$&0,0393629551979762\\\hline
+4&$\begin{pmatrix}-0,958899586619104\\0,185803803696713\\1,08498058457731\\1,12099100393111\\\end{pmatrix}$&0,0169121999251123\\\hline
+5&$\begin{pmatrix}-0,964249146384074\\0,180422421182962\\1,07935664502496\\1,11791589378033\\\end{pmatrix}$&0,00562393955235119\\\hline
+6&$\begin{pmatrix}-0,962319281135253\\0,182435203006485\\1,08173458303242\\1,11912817726331\\\end{pmatrix}$&0,00237793800745756\\\hline
+7&$\begin{pmatrix}-0,963099103441544\\0,181639358897804\\1,08085214851347\\1,1186608714485\\\end{pmatrix}$&0,000882434518947317\\\hline
+\end{longtable}
+
+Vậy nghiệm của hệ phương trình là $x^* \approx x^{(7)} $ với sai số $\epsilon=0,000882435<10^{-3}$.\par
+
+e) Ta có bảng sau:\par
+
+\begin{longtable}{|c|c|c|c|c|}\hline
+&i=1&i=2&i=3&i=4\\ \hline
+\endhead
+$\left|a_{ii} \right|$&20,9&21,2&19,8&32,1\\ \hline
+$\sum\limits_{j=1, j\neq i}^{4} \left|a_{ij}\right|$&4,2&5,2&4,9&4,7\\ \hline
+\end{longtable}
+
+Từ đây suy ra hệ phương trình $Ax=b$ có thể đưa về dạng $x=Bx+g$ sao cho $\left\|B\right\|_{\infty} <1$.
+Ta tìm được ma trận $B$ và $g$ như sau:\par
+
+\begin{small}
+$B=\begin{pmatrix}
+0&-0,0574162679425837&-0,100478468899522&-0,0430622009569378\\
+-0,0566037735849057&0&-0,0707547169811321&-0,117924528301887\\
+-0,106060606060606&-0,0757575757575758&0&-0,0656565656565657\\
+-0,0280373831775701&-0,0778816199376947&-0,0404984423676012&0\\
+\end{pmatrix}$
+\end{small}
+$g=\begin{pmatrix}
+-0,334928229665072\\
+0,25\\
+0,52020202020202\\
+0,766355140186916\\
+\end{pmatrix}$\par
+
+Xét $\|B\|_{\infty} =\max_{1\leqslant i\leqslant 4}\sum\limits_{j=1}^{4}{\|b_{ij}\|}=0,247474747<1$ nên ma trận $B$ thỏa điều kiện hội tụ.\par
+
+Ta có $\frac{\left\|B\right\|_{\infty} }{ 1-\left\|B\right\|_{\infty }}= 0,32885906$ và chọn $x^{(0)}=g$, ta xây dựng dãy $\left\{x^{(k)}\right\}$ theo công thức $x^{(k+1)}=Bx^{(k)}+g$, đồng thời đánh giá sai số của phương pháp, ta có kết quả sau:
+
+\begin{longtable}{|c|Sc|Sc|}\hline
+$k$&$x^{(k)}=Bx^{(k-1)}+g$&$\left\|x^{(k)}-x^*\right\|_{\infty}=\frac{\left\|B\right\|_{\infty}}{1-\left\|B\right\|_{\infty}}\left\|x^{(k)}-x^{(k-1)}\right\|_{\infty}$\\\hline
+\endhead
+1&$\begin{pmatrix}-0,434552338210166\\0,14177938654848\\0,486469070709781\\0,735207874779936\\\end{pmatrix}$&0,0355893292558691\\\hline
+2&$\begin{pmatrix}-0,423608009552663\\0,153478278907438\\0,507278817838622\\0,747795602682095\\\end{pmatrix}$&0,00684347388800811\\\hline
+3&$\begin{pmatrix}-0,426912703089183\\0,149901998962265\\0,504405309000642\\0,745734861312729\\\end{pmatrix}$&0,00117609206250647\\\hline
+4&$\begin{pmatrix}-0,426329900614236\\0,150535383345483\\0,505162038299866\\0,746222415379245\\\end{pmatrix}$&0,000248857286321837\\\hline
+\end{longtable}
+
+Vậy nghiệm của hệ phương trình $x^*\approx x^{(4)}$ với sai số là $0,000248857<10^{-3}$.\par
+
+f)~Ta có bảng sau:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}\hline
+&$i=1$&$i=2$&$i=3$&$i=4$\\ \hline
+$\left|a_i\right|$&1&2&4&4\\ \hline
+$\sum\limits_{j=1, j\neq i}^{4} \left|a_{ij}\right|$&19&25&30&33\\ \hline
+\end{tabular}~và~\begin{tabular}{|c|c|c|c|c|}\hline
+& $j=1$ & $j=2$ & $j=3$ & $j=4$ \\ \hline
+$\left|a_{jj}\right|$ & 1 & 2 & 4 & 4 \\ \hline
+$\sum\limits_{i=1,i\neq j}^{4}\left|a_{ij}\right|$ & 29 & 24 & 29 & 25\\ \hline
+\end{tabular}
+\end{center}
+Do đó hệ phương trình vô nghiệm.\par
+
+\textbf{Bài 5} Giải gần đúng hệ phương trình $Ax=b$ bằng phương phái Seidel với sai số $10^{-3}$:\par
+
+a) $A= \begin{pmatrix}
+4&0,24&-0,08&\\
+0,09&3&-0,15&\\
+0,04&-0,08&4&\\
+\end{pmatrix}$, $b= \begin{pmatrix}
+8\\
+9\\
+20\\
+\end{pmatrix}$\par
+
+e)~$A= \begin{pmatrix}
+10&-2&-1&\\
+-1&10&-2&\\
+-2&-1&10&\\
+\end{pmatrix}$, $b= \begin{pmatrix}
+3\\
+13\\
+26\\
+\end{pmatrix}$\par
+
+f)~$A=\begin{pmatrix}	
+2&-2&1&10\\	
+10&-2&-1&1\\	
+2&20&-5&-5\\	
+1&3&20&-2\\	
+\end{pmatrix}$, $b=\begin{pmatrix}
+10\\
+10\\
+20\\
+20\\
+\end{pmatrix}$\par
+
+g)~$A=\begin{pmatrix}
+1&-0,25&-0,25&0\\
+-0,25&1&0&-0,25\\
+-0,25&0&1&-0,25\\
+0&-0,25&-0,25&1\\
+\end{pmatrix}$, $b=\begin{pmatrix}
+50\\
+50\\
+25\\
+25\\
+\end{pmatrix}$\par
+
+\textbf{Giải}
+
+a)~Ta có bảng sau:
+\begin{longtable}{|Sc|c|c|c|}\hline
+&$i=1$&$i=2$&$i=3$\\\hline
+\endhead
+$\left|a_{ii}\right|$&4&3&4\\\hline
+$\sum\limits_{j=1,j\neq i}^{3} \left|a_{ij}\right|$&0,32&0,24&0,12\\\hline
+\end{longtable}
+Từ đây suy ra hệ phương trình $Ax=b$ có thể đưa về dạng $x=Bx+g$ sao cho $\left\|B\right\|_{\infty} <1$.
+Ta tìm được ma trận $B$ và $g$ như sau:\\
+$B= \begin{pmatrix}
+0&-0,06&0,02\\
+-0,03&0&0,05\\
+-0,01&0,02&0\\
+\end{pmatrix}$, $g=\begin{pmatrix}
+2\\
+3\\
+5\\
+\end{pmatrix}$
+
+Ta có $\left\|B\right\|_{\infty}= 0,08<1$ nên ma trận $B$ thỏa điều kiện hội tụ.\\
+Ta lần lượt có các ma trận $U$ và $L$ như sau:\\
+$U=\begin{pmatrix}
+0&0&0\\
+-0,03&0&0\\
+-0,01&0,02&0\\
+\end{pmatrix}$,$L=\begin{pmatrix}
+0&-0,06&0,02\\
+0&0&0,05\\
+0&0&0\\
+\end{pmatrix}$\par
+
+Ta tiếp tục có:
+\begin{longtable}{|Sc|c|c|c|}\hline
+&$i=1$&$i=2$&$i=3$\\\hline
+\endhead
+$\alpha_i$&0,08&0,05&0\\\hline
+$\beta_i$&0&0,03&0,03\\\hline
+$\frac{\alpha_i}{1-\beta_i}$&0,08&0,0515463917525773&0\\\hline
+$\lambda$&\multicolumn{3}{c|}{0,08}\\\hline
+$\frac{\lambda}{1-\lambda}$&\multicolumn{3}{c|}{0,0869565217391304}\\\hline
+\end{longtable}
+
+Chọn $x^{(0)}=g$, và áp dụng công thức Seidel tính $x^{(k+1)}=(I-U)^{-1}(Lx^{(k)}+g)$ ta có được kết quả trong bảng sau:
+\begin{longtable}{|c|Sc|c|}\hline
+$k$&$x^{(k)}$&Sai số\\\hline
+1&$\begin{pmatrix}2\\3\\5\\\end{pmatrix}$&0,0167304347826087\\\hline
+2&$\begin{pmatrix}1,92\\3,1924\\5,044648\\\end{pmatrix}$&0,000926177391304343\\\hline
+\end{longtable}
+Vậy hệ phương trình có nghiệm là $x^*\approx x^{(2)}$ với sai số là $0,000926177$
+\par
+
+e)~Ta có bảng sau:
+\begin{longtable}{|Sc|c|c|c|}\hline
+&$i=1$&$i=2$&$i=3$\\\hline
+\endhead
+$\left|a_{ii}\right|$&10&10&10\\\hline
+$\sum\limits_{j=1,j\neq i}^{3} \left|a_{ij}\right|$&3&3&3\\\hline
+\end{longtable}
+
+Từ đây suy ra hệ phương trình $Ax=b$ có thể đưa về dạng $x=Bx+g$ sao cho $\|B\|_{\infty} <1$.\par
+
+Ta tìm được ma trận $B$ và $g$ như sau:\par
+$B= \begin{pmatrix}
+0&0,2&0,1\\
+0,1&0&0,2\\
+0,2&0,1&0\\
+\end{pmatrix}$,~$g=\begin{pmatrix}
+0,3\\
+1,3\\
+2,6\\
+\end{pmatrix}$
+
+Ta có $\left\|B\right\|_{\infty}=0,3<1 $ nên ma trận $B$ thỏa điều kiện hội tụ.\par
+Ta lần lượt có các ma trận $U$ và $L$ như sau:\par
+$U=\begin{pmatrix}
+0&0&0\\
+0,1&0&0\\
+0,2&0,1&0\\
+\end{pmatrix}$,~$L=\begin{pmatrix}
+0&0,2&0,1\\
+0&0&0,2\\
+0&0&0\\
+\end{pmatrix}$
+
+Ta tiếp tục có:
+\begin{longtable}{|Sc|c|c|c|}\hline
+&$i=1$&$i=2$&$i=3$\\\hline
+\endhead
+$\alpha_i$&0,3&0,2&0\\\hline
+$\beta_i$&0&0,1&0,3\\\hline
+$\frac{\alpha_i}{1-\beta_i}$&0,3&0,222222222222222&0\\\hline
+$\lambda$&\multicolumn{3}{c|}{0,3}\\\hline
+$\frac{\lambda}{1-\lambda}$&\multicolumn{3}{c|}{0,428571428571429}\\\hline
+\end{longtable}
+
+Chọn $x^{(0)}=g$, và áp dụng công thức Seidel tính $x^{(k+1)}=(I-U)^{-1}(Lx^{(k)}+g)$ ta có được kết quả trong bảng sau:
+\begin{longtable}{|c|Sc|c|}\hline
+$k$&$x^{(k)}$&Sai số\\\hline
+\endhead
+1&$\begin{pmatrix}0,3\\1,3\\2,6\\\end{pmatrix}$&0,258\\\hline
+2&$\begin{pmatrix}0,82\\1,902\\2,9542\\\end{pmatrix}$&0,06678\\\hline
+3&$\begin{pmatrix}0,97582\\1,988422\\2,9940062\\\end{pmatrix}$&0,00911357999999999\\\hline
+4&$\begin{pmatrix}0,99962874622\\1,999816470262\\2,9999073962702\\\end{pmatrix}$&0,00109016837999995\\\hline
+5&$\begin{pmatrix}0,99995403367942\\1,99997688262198\\2,99998849499808\\\end{pmatrix}$&0,000139408911180075\\\hline
+\end{longtable}
+Vậy hệ phương trình có nghiệm là $x^*\approx x^{(5)} $ với sai số là 0,000139409.\par
+
+f)~Ta có bảng sau:
+\begin{center}
+\begin{tabular}{|Sc|c|c|c|c|}\hline
+&$i=1$&$i=2$&$i=3$&$i=4$\\\hline
+$\left|a_{ii}\right|$&2&2&5&2\\\hline
+$\sum\limits_{j=1,j\neq i}^{4} \left|a_{ij}\right|$&13&12&27&24\\\hline
+\end{tabular}~và~
+\begin{tabular}{|c|c|c|c|c|}\hline
+&j=1&j=2&j=3&j=4\\\hline
+$\left|a_{jj}\right|$&2&2&5&2\\\hline
+$\sum\limits_{i=1,i\neq j}^{4} \left|a_{ij}\right|$&13&25&22&16\\\hline
+\end{tabular}
+\end{center}
+
+Từ đây ta suy ra hệ phương trình vô nghiệm.\par
+
+g)~Ta có bảng sau:
+\begin{longtable}{|Sc|c|c|c|c|}\hline
+&$i=1$&$i=2$&$i=3$&$i=4$\\\hline
+\endhead
+$\left|a_{ii}\right|$&1&1&1&1\\\hline
+$\sum\limits_{j=1,j\neq i}^{4} \left|a_{ij}\right|$&0,5&0,5&0,5&0,5\\\hline
+\end{longtable}
+
+Từ đây suy ra hệ phương trình $Ax=b$ có thể đưa về dạng $x=Bx+g$ sao cho $\left\|B\right\|_{\infty} <1$.\par
+Ta tìm được ma trận $B$ và $g$ như sau:\par
+$B=\begin{pmatrix}
+0&0,25&0,25&0\\
+0,25&0&0&0,25\\
+0,25&0&0&0,25\\
+0&0,25&0,25&0\\
+\end{pmatrix}$, $g=\begin{pmatrix}
+50\\
+50\\
+25\\
+25\\
+\end{pmatrix}$
+
+Ta có $\left\|B\right\|_{\infty}= 0,5<1$ nên ma trận $B$ thỏa điều kiện hội tụ.\par
+Ta lần lượt có các ma trận $U$ và $L$ như sau:\par
+$U=\begin{pmatrix}
+0&0&0&0\\
+0,25&0&0&0\\
+0,25&0&0&0\\
+0&0,25&0,25&0\\
+\end{pmatrix}$, $L=\begin{pmatrix}
+0&0,25&0,25&0\\
+0&0&0&0,25\\
+0&0&0&0,25\\
+0&0&0&0\\
+\end{pmatrix}$
+
+Ta tiếp tục có:
+\begin{longtable}{|Sc|c|c|c|c|}\hline
+&$i=1$&$i=2$&$i=3$&$i=4$\\\hline
+\endhead
+$\alpha_i$&0,5&0,25&0,25&0\\\hline
+$\beta_i$&0&0,25&0,25&0,5\\\hline
+$\frac{\alpha_i}{1-\beta_i}$&0,5&0,333333333333333&0,333333333333333&0\\\hline
+$\lambda$&\multicolumn{4}{c|}{0,5}\\\hline
+$\frac{\lambda}{1-\lambda}$&\multicolumn{4}{c|}{1}\\\hline
+\end{longtable}
+
+Chọn $x^{(0)}=g$, và áp dụng công thức Seidel tính $x^{(k+1)}=(I-U)^{-1}(Lx^{(k)}+g)$ ta có được kết quả trong bảng sau:
+
+\begin{longtable}{|c|Sc|c|}\hline
+$k$&$x^{(k)}$&Sai số\\\hline
+\endhead
+1&$\begin{pmatrix}47,75\\59,4375\\34,4375\\48,46875\\\end{pmatrix}$&64,4375\\\hline
+2&$\begin{pmatrix}73,46875\\80,484375\\55,484375\\58,9921875\\\end{pmatrix}$&25,71875\\\hline
+3&$\begin{pmatrix}83,9921875\\85,74609375\\60,74609375\\61,623046875\\\end{pmatrix}$&10,5234375\\\hline
+4&$\begin{pmatrix}86,623046875\\87,0615234375\\62,0615234375\\62,28076171875\\\end{pmatrix}$&2,630859375\\\hline
+5&$\begin{pmatrix}87,28076171875\\87,390380859375\\62,390380859375\\62,4451904296875\\\end{pmatrix}$&0,65771484375\\\hline
+6&$\begin{pmatrix}87,4451904296875\\87,4725952148437\\62,4725952148437\\62,4862976074218\\\end{pmatrix}$&0,1644287109375\\\hline
+7&$\begin{pmatrix}87,4862976074218\\87,4931488037109\\62,4931488037109\\62,4965744018554\\\end{pmatrix}$&0,041107177734375\\\hline
+8&$\begin{pmatrix}87,4965744018554\\87,4982872009277\\62,4982872009277\\62,4991436004638\\\end{pmatrix}$&0,0102767944335937\\\hline
+9&$\begin{pmatrix}87,4991436004638\\87,4995718002319\\62,4995718002319\\62,4997859001159\\\end{pmatrix}$&0,00256919860839844\\\hline
+10&$\begin{pmatrix}87,4997859001159\\87,4998929500579\\62,4998929500579\\62,4999464750289\\\end{pmatrix}$&0,000642299652099609\\\hline
+\end{longtable}
+Vậy hệ phương trình có nghiệm $x^*\approx x^{(10)}$ với sai số 0,0006423.
+\end{document}

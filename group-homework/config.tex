@@ -1,7 +1,7 @@
 \usepackage[margin=2cm,left=3cm]{geometry}
 \usepackage[utf8]{vietnam}
 \usepackage{amsfonts,amsmath,amsthm,amssymb} % math
-\usepackage{enumitem,multicol,multirow,longtable} % layout
+\usepackage{enumitem,multicol,multirow,longtable,cellspace} % layout
 \usepackage{tikz,graphicx,wrapfig,xcolor} % graphing
 % \usepackage{ragged2e,changepage,fancyhdr} % page setup
 \usepackage{titlesec} % chapter title setting
@@ -12,6 +12,9 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{4pt}
 \newcommand\tabularrowheight[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+% \setlength\extrarowheight{2pt}
+\setlength\cellspacetoplimit{4pt}
+\setlength\cellspacebottomlimit{4pt}
 
 % Chapter custom
 \titleformat{\chapter}[display] % display|hang

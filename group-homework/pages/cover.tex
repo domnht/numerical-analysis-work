@@ -1,25 +1,43 @@
 \thispagestyle{empty}
 \pagenumbering{Alph}
-\begin{center}\large
-	\textbf{TRƯỜNG ĐẠI HỌC CẦN THƠ}\\
-	\textbf{KHOA SƯ PHẠM}\\
-	\textbf{BỘ MÔN SƯ PHẠM TOÁN HỌC}
+
+\usetikzlibrary{calc}
+
+\begin{center}
+	\begin{tikzpicture}[remember picture,overlay]
+		\draw [black, line width=2pt]
+		($(current page.north west) + (2cm, -1cm)$)
+		rectangle
+		($(current page.south east) + (-1cm, 1cm)$);
+
+		\draw [black, line width=1pt]
+		($(current page.north west) + (2cm + 2pt, -1cm - 2pt)$)
+		rectangle
+		($(current page.south east) + (-1cm - 2pt, 1cm + 2pt)$);
+	\end{tikzpicture}
+	\begin{large}\bfseries
+		TRƯỜNG ĐẠI HỌC CẦN THƠ\\
+		KHOA SƯ PHẠM\\
+		BỘ MÔN SƯ PHẠM TOÁN HỌC\par
+		\vspace{1cm}
+		\includegraphics[width=3.5cm]{ctu-logo.png}
+	\end{large}
+	\vfill
+	{\LARGE Bài tập nhóm}\par
+	{\Huge\bfseries GIẢI TÍCH SỐ}\par
+	\vfill
+	\begin{large}
+		\textbf{Nhóm 3}\par
+		\begin{tabular}{ll}
+			Nguyễn Ngọc Đăng Duy& B1700014\\
+			Lê Hữu Kiệt&B1700024\\
+			Phan Thanh Tâm& B1700038\\
+			Nguyễn Hiếu Thanh& B1700039
+		\end{tabular}
+	\end{large}
+	\vfill
+	\begin{large}
+		Cần Thơ, 2020
+	\end{large}
 \end{center}
-\vfill
-{\centering\includegraphics[width=4cm]{ctu-logo.png}\par}
-\vfill
-{\centering\LARGE Bài tập nhóm\par}
-{\centering\Huge\bfseries GIẢI TÍCH SỐ\par}
-\vfill
-\begin{center}\large
-\textbf{Nhóm 3}\par
-\begin{tabular}{ll}
-	Nguyễn Ngọc Đăng Duy& B1700014\\
-	Lê Hữu Kiệt&B1700024\\
-	Phan Thanh Tâm& B1700038\\
-	Nguyễn Hiếu Thanh& B1700039
-\end{tabular}
-\end{center}
-\vfill
-{\centering\large\textit{Cần Thơ, 2020}\par}
 \newpage

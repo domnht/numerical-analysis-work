@@ -1,10 +1,50 @@
 \chapter{Giải gần đúng phương trình đại số và siêu việt}
 
-\textbf{\color{blue}Bài 2.} Dùng phương pháp lặp đơn, hãy tìm nghiệm của các phương trình:
-i) $(x-1)^2=\frac{1}{2}e^x$ với sai số $10^{-2}$ trong khoảng phân ly nghiệm $(0;0,5)$
+\textbf{Bài 2.} Dùng phương pháp lặp đơn, hãy tìm nghiệm của các phương trình:\par
+c) $x-\sin{x}=0,25$ với sai số $10^{-2}$ trong khoảng phân lý nghiệm $(1;1,5)$.\par
+f) $2^{x}-5x-3=0$ với sai số $10^{-4}$ trong khoảng phân ly nghiệm $(4;5)$.\par
+i) $(x-1)^2=\frac{1}{2}e^x$ với sai số $10^{-2}$ trong khoảng phân ly nghiệm $(0;0,5)$.\par
 j) $x=\ln x+3$ với sai số $10^{-3}$ trong khoảng phân ly nghiệm $(4;5)$
 
 \textbf{Giải}
+
+c) Đặt $f(x)=x-\sin{x}-0,25 $. Ta có:
+\begin{itemize}
+	\item $f(x) $ liên tục trên khoảng $\left(1;1,5\right) $.
+	\item $f'(x)=1-\cos{x}>0$, $\forall x\in \left(1;1,5\right) $ nên hàm số đồng biến trên đoạn $\left(1;1,5\right)$.
+	\item $f\left(1\right)= 0,7325$, $f\left(1,5\right)=1,2238 $, suy ra $f\left(1\right)f\left(1,5\right)>0$.
+\end{itemize}
+Từ đây ta suy ra hàm số vô nghiệm trên đoạn $(1;1,5)$.\par
+
+f) Đặt $f(x)=2^{x}-5x-3 $. Ta có:
+\begin{itemize}
+	\item $f(x) $ liên tục trên khoảng $\left(4;5\right) $.
+	\item $f\left(4\right)f\left(5\right)<0 $.
+	\item $f'(x)=2^{x}\ln{2}-5 > 0, \forall x \in \left(4;5\right) $.
+\end{itemize}
+
+Do đó: phương trình $f(x)=0  $ có một nghiệm trên khoảng $\left(4;5\right) $.\par
+
+Do $f'(x)>0 $ nên ta đặt $\varphi(x)=x-\frac{f(x)}{M}$.
+Trong đó:
+$$M\geq \underset{x\in \left(4;5\right) }\max\left| f'(x) \right| \approx 17,1807$$
+
+Chọn $M=17,1807 $, suy ra $\varphi(x) =x-\frac{f(x) }{17,1807} = \frac{-2^{x}+22,1807x + 3}{17,1807}$.\par
+Ta có $\varphi ' (x) = \frac{-2^{x}\ln{2}+22,1807}{17,1807}$ và $\max_{x\in(4;5)}\left| \varphi ' (x) \right| < \left| \varphi ' \left(4\right) \right| = 0,6455 $.\par
+
+Chọn $L=0,6455 $.\par
+Chọn $x_0=4,7 $, ta có xấp xỉ nghiệm trong bảng sau:
+\begin{longtable}{|c|c|c|}\hline
+	$n$ & $x_n=\varphi\left(x_{n-1}\right) $ & $\left| x_n - x* \right| \leq 1,82087 \left|x_n - x_{n-1}\right|$\\ \hline
+	\endhead
+	$1$ & $4,72956$ & $0,05382$\\ \hline
+	$2$ & $4,73641$ & $0,01247$ \\ \hline
+	$3$ & $4,73791$ & $0,02731$ \\ \hline
+	$4$ & $4,73822$ & $0,00056$ \\ \hline
+	$5$ & $4,73829$ & $0,00013$ \\ \hline
+	$6$ & $4,73831$ & $0,00004$ \\ \hline
+\end{longtable}
+Vậy $x^*\approx x_6=4,73831$.\par
 
 i) Đặt $f(x)=(x-1)^2-\frac{1}{2}e^x=0$, ta có:
 \begin{align*}
@@ -12,6 +52,7 @@ i) Đặt $f(x)=(x-1)^2-\frac{1}{2}e^x=0$, ta có:
 	&f(0)  =\frac{1}{2}\\
 	&f(0,5)=\frac{1}{4}-\frac{1}{2}.e^{\frac{1}{2}}
 \end{align*}
+
 Từ đây ta có $f(0).f(0,5)<0$ và $f(x)$ đơn điệu giảm trên khoảng $(0;0,5)$ nên phương trình $f(x)=0$ có duy nhất nghiệm trên khoảng $(0;0,5)$\par
 
 Phương trình đã cho tương đương với $$x=1-\sqrt{\frac{e^x}{2}}$$
@@ -23,43 +64,40 @@ Phương trình đã cho tương đương với $$x=1-\sqrt{\frac{e^x}{2}}$$
 Do đó $|x_n-x^*|\leqslant 0,83140|x_n-x_{n-1}|$
 Chọn $x=0,1$, ta có xấp xỉ nghiệm của phương trình được cho trong bảng sau:
 
-\begin{center}
-\begin{tabular}{|c|c|c|}\hline
+\begin{longtable}{|c|c|c|}\hline
 $n$&$x_n=\varphi(x_{n-1})$&$0,83140|x_n-x_{n-1}|$\\ \hline
+\endhead
 1&$0,25664$&$0,13023$\\ \hline
 2&$0,19608$&$0,05035$\\ \hline
 3&$0,22006$&$0,01994$\\ \hline
 2&$0,21065$&$0,78210.10^{-2}$\\ \hline
-\end{tabular}
-\end{center}
+\end{longtable}
 
 Vậy nghiệm của phương trình đã cho với sai số $10^{-2}$ trong khoảng phân ly nghiệm $(0;0,5)$ là $x\approx 0,21065$.\par
 
-j)Đặt $f(x)=x-\ln x-3$, ta có:
+j) Đặt $f(x)=x-\ln x-3$, ta có:
 \begin{align*}
-	&f'(x)=1-\frac{1}{x}>0 \forall x\in (4;5)\\
+	&f'(x)=1-\frac{1}{x}>0~\forall x\in (4;5)\\
 	&f''(x)=-\frac{1}{x^2}\\
 	&f(4)=1-\ln 4\\
 	&f(5)=2-\ln 5
 \end{align*}
-Từ đây ta có $f(4).f(5)<0$ và $f(x)$ đơn điệu tăng trên khoảng $(4;5)$ nên phương trình $f(x)=0$ có duy nhất nghiệm trên khoảng $(4;5)$\par
-Đặt $\varphi (x)=\ln x+3$, ta có:
-\begin{align*}
-	&\varphi'(x)=\frac{1}{x}\\
-	&\max_{x\in [4;5]} |\varphi'(x)| = 0,25
-\end{align*}
+
+Từ đây ta có $f(4).f(5)<0$ và $f(x)$ đơn điệu tăng trên khoảng $(4;5)$ nên phương trình $f(x)=0$ có duy nhất nghiệm trên khoảng $(4;5)$.\par
+
+Đặt $\varphi(x)=\ln x+3$, ta có:
+$$\varphi'(x)=\frac{1}{x};~~~~
+\max_{x\in [4;5]} |\varphi'(x)| = 0,25$$
 
 Do đó $|x_n-x^*|\leqslant \frac{1}{3}|x_n-x_{n-1}|$\par
 Chọn $x=4,1$, ta có xấp xỉ nghiệm của phương trình được cho trong bảng sau:
-\begin{center}
-\begin{tabular}{|c|c|c|}\hline
+\begin{longtable}{|c|c|Sc|}\hline
 $n$&$x_n=\varphi(x_{n-1})$&$\frac{1}{3}|x_n-x_{n-1}|$\\ \hline
 1&$4,41099$&$0,10366$\\ \hline
 2&$4,48410$&$0,02437$\\ \hline
 3&$4,50054$&$0,54797.10^{-2}$\\ \hline
 4&$4,50420$&$0,12198.10^{-2}$\\ \hline
 5&$4,50500$&$0,27092.10^{-3}$\\ \hline
-\end{tabular}
-\end{center}
+\end{longtable}
 
 Vậy nghiệm của phương trình đã cho với sai số $10^{-3}$ trong khoảng phân ly nghiệm $(4;5)$ là $x\approx 4,50500$.\par

@@ -1,43 +1,43 @@
 \chapter{Số gần đúng và sai số}
 
-\textbf{\color{blue}Bài 1.} Xác định sai số tuyệt đối giới hạn của số xấp xỉ sau:\par
-{\centering $c=1,3241$; $\Delta_c=0,23.10^{-2}$\par}
+\textbf{Bài 1.} Xác định sai số tuyệt đối giới hạn của số xấp xỉ sau: $$c=1,3241;~\Delta_c=0,23.10^{-2}$$
 
 \textbf{Giải}\par
 Sai số tuyệt đối giới hạn: $\Delta_c=0,23.10^{-2}$.\par
 Sai số tương đối giới hạn: $\delta_c=\frac{\Delta_c}{\lvert a\rvert}=0,00173702893$.\par
 
-\textbf{\color{blue}Bài 2.} Xác định các chữ số đáng tin và đáng nghi trong trường hợp\par
-{\centering $b=0,2351$; $\Delta_b=0,5.10^{-3}$\par}
+\textbf{Bài 2.} Xác định các chữ số đáng tin và đáng nghi trong trường hợp: $$b=0,2351;~\Delta_b=0,5.10^{-3}$$
 
 \textbf{Giải}\par
 Ta có $\Delta_b=0,5.10^{-3}$.\par
 Dễ thấy $0,5.10^{-4}\leqslant \Delta_b \leqslant 0,5.10^{-3}$ nên các chữ số $0$, $2$, $3$, $5$ là các chữ số đáng tin; chữ số $1$ là chữ số đáng nghi.
 
-\textbf{\color{blue}Bài 3.} Xác định các chữ số đáng tin và đáng nghi trong trường hợp\par
-{\centering $c=0,2164;\delta_c=0,5.10^{-3}$\par}
+\textbf{Bài 3.} Xác định các chữ số đáng tin và đáng nghi trong trường hợp: $$c=0,2164;\delta_c=0,5.10^{-3}$$
 
 \textbf{Giải}\par
 Ta có $\delta_c=\frac{\Delta_c}{|c|}\Rightarrow \Delta_c=\delta_c.|c|=0,5.10^{-3}.0,2164=0,0001082=0,1082.10^{-3}$.\par
 Dễ thấy $0,5.10^{-4}\leqslant\Delta_c \leqslant 0,5.10^{-3}$ nên các chữ số 0,2,1,6 là đáng tin; chữ số 4 là đáng nghi\par
 
-\textbf{\color{blue}Bài 4.} Tìm sai số tuyệt đối giới hạn và sai số tương đối giới hạn của hàm số\par
-{\centering $y=(1+abc)^{\alpha}$ biết $a=2,13;b=4,39;c=0,72$\par}
+\textbf{Bài 4.} Tìm sai số tuyệt đối giới hạn và sai số tương đối giới hạn của hàm số: $$y=(1+abc)^{\alpha}$$ biết $a=2,13;~b=4,39;~c=0,72$.
 
 \textbf{Giải}\par
+
 Ta có: $a=2,13\pm 0,5.10^{-2}$ , $b=4,39\pm 0,5.10^{-2}$, $c=0,72\pm 0,5.10^{-2}$\par
-Lại có: 
+
+Lại có:
 $\begin{cases}
 	y'_a=\alpha.bc.(1+abc)^{\alpha-1}\\
 	y'_b=\alpha.ac.(1+abc)^{\alpha-1}\\
 	y'_c=\alpha.ab.(1+abc)^{\alpha-1}
-\end{cases}$\par
+\end{cases}$.\par
+
 Sai số tuyệt đối giới hạn của hàm số là:\par
-$\begin{array}{ll}
+\begin{align*}
 	\Delta_y&=\left\lvert y'_a\right\rvert .\Delta_a+\left\lvert y'_b\right\rvert .\Delta_b+\left\lvert y'c\right\rvert . \Delta_c \\
 	&=3,1608.\alpha .7,732504^{\alpha -1}  +9,3507.\alpha.7,732504^{\alpha -1}+ 1,5336.\alpha.7,732504^{\alpha -1}\\
 	&=\alpha.7,732504^{\alpha -1}.14,0451\\
 	&=\alpha.7,732504^{\alpha}.1,816371514
-\end{array}$.\par
-Sai số tương đối giới hạn của hàm số là\par
-{\centering $\delta_y=\frac{\Delta_y}{|y|}=\frac{\alpha.7,732504^{\alpha}.1,816371514}{(1+2,13.4,39.0,72)^{\alpha}}=\alpha.1,816371514$\par}
+\end{align*}
+
+Sai số tương đối giới hạn của hàm số là
+$$\delta_y=\frac{\Delta_y}{|y|}=\frac{\alpha.7,732504^{\alpha}.1,816371514}{(1+2,13.4,39.0,72)^{\alpha}}=\alpha.1,816371514$$
