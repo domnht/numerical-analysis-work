@@ -43,11 +43,11 @@ Vậy
 trong đó $a_i=(-1)^i\int\limits_{0}^{1}(C_{-t}^i)\mathrm{d}t$
 
 Ta có bảng giá trị một số các $a_i$:
-\begin{center}\begin{tabular}{|c|c|c|c|c|c|c|c|c|}\hline
+\begin{longtable}{|c|Sc|Sc|Sc|Sc|Sc|Sc|Sc|Sc|}\hline
 	$i$   & $0$ & $1$       & $2$            & $3$       & $4$               & $5$              & $6$                   & $7$\\\hline
-	\tabularrowheight{24pt}
+	\endhead
 	$a_i$ & $1$ & $\frac12$ & $\frac{5}{12}$ & $\frac38$ & $\frac{251}{720}$ & $\frac{95}{288}$ & $\frac{19087}{60480}$ & $\frac{5257}{17280}$\\\hline
-\end{tabular}\end{center}
+\end{longtable}
 \begin{itemize}
 	\item Nếu $k=1$:
 		$$y_{m+1}=y_m+h(f_m+a_1\Delta f_{m-1})=y_m+\frac{h}{2}(3f_m-f_{m-1})$$
@@ -84,11 +84,11 @@ Vậy
 trong đó $b_i=(-1)^i\int\limits_{-1}^{0} \left(C_{-i}^i\right)\mathrm{d}t$.\par
 
 Ta có bảng giá trị một số các $b_i$:
-\begin{center}\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+\begin{longtable}{|c|Sc|Sc|Sc|Sc|Sc|Sc|Sc|}\hline
 	$i$   & $0$ & $1$        & $2$             & $3$             & $4$               & $5$              & $6$\\\hline
-	\tabularrowheight{24pt}
+	\endhead
 	$b_i$ & $1$ & $-\frac12$ & $-\frac{1}{12}$ & $-\frac{1}{24}$ & $-\frac{19}{720}$ & $-\frac{3}{160}$ & $-\frac{863}{60480}$\\\hline
-\end{tabular}\end{center}
+\end{longtable}
 
 Nếu $k=2$:
 $$y_{m+1}=y_m+h(f_{m+1}+b_1\Delta f_m+b_2\Delta f_{m-1})=y_m+\frac{h}{12}(5f_{m+1}+8f_m-f_{m-1})$$
@@ -130,8 +130,9 @@ Vậy,
 Nghiệm chính xác của phương trình đã cho là $\varphi(x)=2+2x+x^2-\mathrm{e}^{x}$
 Ta có thể so sánh nghiệm gần đúng khi giải phương trình đã cho bằng phương pháp RK4 và phương pháp nội suy Adams với $k=3$ với nghiệm chính xác của phương trình theo bảng sau:\par
 
-\begin{center}\begin{tabular}{|c|c|c|c|c|}\hline
+\begin{longtable}{|c|c|c|c|c|}\hline
 	$i$  & $x_i$ & Adams         & RK4           & $\varphi(x_i)$ \\ \hline
+	\endhead
 	$4$  & $0.4$ & $1.468179116$ & $1.468174786$ & $1.468175302$  \\ \hline
 	$5$  & $0.5$ & $1.601288165$ & $1.601278076$ & $1.601278729$  \\ \hline
 	$6$  & $0.6$ & $1.737896991$ & $1.737880409$ & $1.7378812$    \\ \hline
@@ -139,4 +140,4 @@ Ta có thể so sánh nghiệm gần đúng khi giải phương trình đã cho 
 	$8$  & $0.8$ & $2.014491614$ & $2.014458009$ & $2.014459072$  \\ \hline
 	$9$  & $0.9$ & $2.150440205$ & $2.150395695$ & $2.150396889$  \\ \hline
 	$10$ & $1.0$ & $2.281774162$ & $2.281716852$ & $2.281718172$  \\ \hline
-\end{tabular}\end{center}
+\end{longtable}

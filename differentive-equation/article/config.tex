@@ -1,9 +1,10 @@
 \usepackage[margin=2cm,left=3cm]{geometry}
 \usepackage[utf8]{vietnam}
 \usepackage{amsfonts,amsmath,amsthm,amssymb} % math
-\usepackage{enumitem,booktabs,multicol,multirow,longtable} % layout
-\usepackage{graphicx,xcolor} % graphing
-\usepackage{stackengine}
+\usepackage{enumitem,multicol,multirow,longtable,cellspace} % layout
+\usepackage{tikz,graphicx,wrapfig,xcolor} % graphing
+\usepackage{ragged2e,changepage,fancyhdr} % page setup
+\usepackage{titlesec} % chapter title setting
 \usepackage[hidelinks,unicode]{hyperref}
 
 % Spacing
@@ -12,12 +13,21 @@
 \setlength{\parskip}{4pt}
 \newcommand\tabularrowheight[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
 
+\setlength\cellspacetoplimit{4pt}
+\setlength\cellspacebottomlimit{4pt}
+
 % Numbering style
 \theoremstyle{definition}
-\newtheorem{definition}{Định nghĩa}[section]
-\newtheorem{example}{Ví dụ}[section]
-\newtheorem{remark}{Nhận xét}[section]
-\numberwithin{equation}{section}
+\newtheorem{definition}{Định nghĩa}[chapter]
+\newtheorem{example}{Ví dụ}[chapter]
+\newtheorem{remark}{Nhận xét}[chapter]
+% \numberwithin{equation}{section}
+
+% Chapter custom
+\titleformat{\chapter}[display] % display|hang
+{\centering\normalfont\huge\bfseries}{\centering\chaptertitlename\ \thechapter}{0pt}{\Huge} % pattern
+\titlespacing{\chapter}{0pt}{0pt}{12pt} % spacing with other
+% middle number (-24pt) is space-before chapter-title
 
 % Set images' path
 \graphicspath{ {images/} }

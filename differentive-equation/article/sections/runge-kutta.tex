@@ -107,17 +107,19 @@ Ta xét một số trường hợp đặc biệt:
 \end{enumerate}
 
 \subsection{Sơ đồ tính toán}
-\begin{center}\begin{tabular}{|l|l|l|l|}
+\begin{longtable}{|Sl|Sl|Sl|Sc|}
 \hline
 $n$ & $x_n$          & $y_n$                       & $hf(x_n,y_n)$ \\
 \hline
-$0$ & $x_0$          & $y_0$                       & ${}^{(0)}k_1$\\
+\endhead
+    & $x_0$          & $y_0$                       & ${}^{(0)}k_1$\\
+    \multirow{3}{*}{$0$}
     & $x_0+\frac h2$ & $y_0+\frac{{}^{(0)}k_1}{2}$ & ${}^{(0)}k_2$\\
     & $x_0+\frac h2$ & $y_0+\frac{{}^{(0)}k_2}{2}$ & ${}^{(0)}k_3$\\
     & $x_0+h$        & $y_0+{}^{(0)}k_3$           & ${}^{(0)}k_4$\\
 \hline
-\multicolumn{4}{|c|}{\tabularrowheight{24pt}$y_1=y_0+\frac16\left({}^{(0)}k_1+2{}^{(0)}k_2+2{}^{(0)}k_3+{}^{(0)}k_4\right)$}\\
+\multicolumn{4}{|Sc|}{$y_1=y_0+\frac16\left({}^{(0)}k_1+2{}^{(0)}k_2+2{}^{(0)}k_3+{}^{(0)}k_4\right)$}\\
 \hline
 $1$ & $x_1$          & $y_1$                       & ${}^{\left(1\right)}k_1$\\
 \hline
-\end{tabular}\end{center}
+\end{longtable}

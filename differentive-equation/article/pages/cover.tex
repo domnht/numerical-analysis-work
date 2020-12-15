@@ -1,28 +1,52 @@
 \thispagestyle{empty}
 \pagenumbering{Alph}
-\begin{center}\large
-	\textbf{TRƯỜNG ĐẠI HỌC CẦN THƠ}\\
-	\textbf{KHOA SƯ PHẠM}\\
-	\textbf{BỘ MÔN SƯ PHẠM TOÁN HỌC}
-\end{center}
-\vfill
-{\centering\includegraphics[width=4cm]{ctu-logo.png}\par}
-\vfill
+
+\usetikzlibrary{calc}
+
 \begin{center}
-	{\LARGE Chuyên đề}\par
-	{\Huge\bfseries GIẢI GẦN ĐÚNG}\\
-	{\LARGE\bfseries PHƯƠNG TRÌNH VI PHÂN THƯỜNG}
+
+	\begin{tikzpicture}[remember picture,overlay]
+		\draw [black, line width=2pt]
+		($(current page.north west) + (2cm, -1cm)$)
+		rectangle
+		($(current page.south east) + (-1cm, 1cm)$);
+
+		\draw [black, line width=1pt]
+		($(current page.north west) + (2cm + 2pt, -1cm - 2pt)$)
+		rectangle
+		($(current page.south east) + (-1cm - 2pt, 1cm + 2pt)$);
+	\end{tikzpicture} % Box
+	
+	\begin{large}\bfseries
+		TRƯỜNG ĐẠI HỌC CẦN THƠ\\
+		KHOA SƯ PHẠM\\
+		BỘ MÔN SƯ PHẠM TOÁN HỌC\par
+		\vspace{1cm}
+		\includegraphics[width=3.5cm]{ctu-logo.png}
+	\end{large}
+
+	\vfill
+
+	\begin{adjustwidth}{-1cm}{-1cm}
+		\centering\LARGE\bfseries
+		MỘT SỐ PHƯƠNG PHÁP GIẢI GẦN ĐÚNG\\PHƯƠNG TRÌNH VI PHÂN THƯỜNG
+	\end{adjustwidth}
+
+	\vfill
+
+	\begin{large}
+		\textbf{Nhóm 3}\par
+		\begin{tabular}{ll}
+			Nguyễn Ngọc Đăng Duy& B1700014\\
+			Lê Hữu Kiệt&B1700024\\
+			Phan Thanh Tâm& B1700038\\
+			Nguyễn Hiếu Thanh& B1700039
+		\end{tabular}
+	\end{large} % Members
+
+	\vfill
+
+	{\large Cần Thơ, \the\year{}}
+
 \end{center}
-\vfill
-\begin{center}\large
-	\textbf{Nhóm 3}\par
-	\begin{tabular}{ll}
-		Nguyễn Ngọc Đăng Duy& B1700014\\
-		Lê Hữu Kiệt&B1700024\\
-		Phan Thanh Tâm& B1700038\\
-		Nguyễn Hiếu Thanh& B1700039
-	\end{tabular}
-\end{center}
-\vfill
-{\centering\large\textit{Cần Thơ, 2020}\par}
 \newpage
