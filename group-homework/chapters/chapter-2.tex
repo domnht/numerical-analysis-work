@@ -1,5 +1,5 @@
 \chapter{Lý thuyết nội suy}
-\textbf{Bài 1.} Tìm đa thức nội suy Larange của hàm số $y=f(x)$ cho bằng bảng sau:\par
+\textbf{Câu 1.} Tìm đa thức nội suy Larange của hàm số $y=f(x)$ cho bằng bảng sau:\par
 \begin{multicols}{2}
 d)\begin{center}\begin{tabular}{|c|c|c|c|c|}\hline
 	$x$&321&322,8&324,2&325\\ \hline
@@ -81,13 +81,11 @@ Do đó ta có đa thức nội suy Larange có dạng:
 
 và giá trị gần đúng của $f(5,1)$ là $P(5,1)\approx 90,1281$.
 
-\textbf{Bài 2.} Tìm đa thức nội suy Newton của hàm số $y=f(x)$ được cho bằng bảng sau:\par
-\begin{center}
-b) \begin{tabular}{|c|c|c|c|c|c|}\hline
+\textbf{Câu 2b.} Tìm đa thức nội suy Newton của hàm số $y=f(x)$ được cho bằng bảng sau:\par
+\begin{longtable}{|c|c|c|c|c|c|}\hline
 	$x$ & $-0,35$ & $-0,1$ & $0,15$ & $0,4$ & $0,65$\\ \hline
 	$y$ & $0,387322$ & $0,762616$ & $1,501553$ & $2,956482$ & $5,821162$\\ \hline
-\end{tabular}
-\end{center}
+\end{longtable}
 và tính gần đúng giá trị $f\left(0,55\right)$.\par
 
 \textbf{Giải}\par
@@ -114,5 +112,177 @@ Ta có bảng tỉ sai phân như sau:
 	&+ 3,641707(x+0,35)(x+0,1)(x-0,15)(x-0,4)
 \end{align*}
 
-
 Khi đó, ta tính được $f(0,55)=4,447517528$.\par
+
+\textbf{Câu 3b.} Tìm đa thức nội suy Newton tiến và lùi của hàm số $y=f(x)$ được cho bằng bảng sau:\par
+\begin{longtable}{|c|c|c|c|c|c|}\hline
+	$x$ & 1,9 & 2,1 & 2,3 & 2,5 & 2,7 \\ \hline
+	$y$ & 11,18 & 14,78 & 17,89 & 23,52 & 28,56 \\ \hline
+\end{longtable}
+và tính gần đúng giá trị $f(2,37)$.\par
+
+\textbf{Giải}\par
+Ta có bảng sai phân:
+\begin{longtable}{|c|c|c|c|c|c|}\hline
+	$x_i$&$y_i$&$\Delta y$& $\Delta^2 y$&$\Delta^3 y$&$\Delta^4 y$\\\hline
+	\endhead
+	1,9&11,18&& &&\\\hline
+	&&3,6& &&\\\hline
+	2,1&14,78&& -0,49&&\\\hline
+	&&3,11& &3,01&\\\hline
+	2,3&17,89&& 2,52&&-6,12\\\hline
+	&&5,63& &-3,11&\\\hline
+	2,5&23,52&& -0,59&&\\\hline
+	&&5,04& &&\\\hline
+	2,7&28,56&& &&\\\hline
+\end{longtable}
+Do đó:\par
+
+\textit{Đa thức nội suy Newton dạng tiến} là:
+\begin{multline*}
+	P_t(x)=11,18 + 18(x-1,9) -\frac{49}{8}(x-1,9)(x-2,1) + \frac{1505}{24}(x-1,9)(x-2,1)(x-2,3)\\
+	-\frac{1275}{8}(x-1,9)(x-2,1)(x-2,3)(x-2,3)(x-2,5)
+\end{multline*}
+và \textit{Đa thức nội suy Newton dạng lùi} là:
+\begin{multline*}
+	P_{l} (x)= 28,56 +25,2(x-2,7) -\frac{59}{8}(x-2,7)(x-2,5)-\frac{1555}{24}(x-2,7)(x-2,5)(x-2,3) \\
+	-\frac{1275}{8}(x-2,7)(x-2,5)(x-2,3)(x-2,1)
+\end{multline*}
+Khi đó ta tính được các giá trị:
+\begin{center}
+	$f_t(2,37)\approx P_t(2,37)= 19,60382028$ và $f_l(2,37) \approx P_l(2,37)= 19,63382028$
+\end{center}
+
+\textbf{Câu 5b.} Tính gần đúng tổng sau:
+$$S_n=1^2 + 4^2 +7^2 + \ldots + (3n+1)^2 $$
+biết $S_n$ là một đa thức bậc ba.\par
+
+\textbf{Giải}\par
+Ta có bảng sau:
+\begin{longtable}{|c|c|c|c|c|}\hline
+	$n$&$S_n$&$\Delta y$&$\Delta^2 y$&$\Delta^3 y$\\\hline
+	\endhead
+	0&1&&&\\\hline
+	&&16&&\\\hline
+	1&17&&33&\\\hline
+	&&49&&18\\\hline
+	2&66&&51&\\\hline
+	&&100&&\\\hline
+	3&166&&&\\\hline
+\end{longtable}
+
+Áp dụng công thức nội suy Newton dạng tiến ta tìm được:
+$$S_n= 1+ 16n + \frac{33}{2}n(n-1)+3n(n-1)(n-2)$$
+
+\textbf{Câu 8c.} Cho bảng giá trị:\\
+\begin{longtable}{|c|c|c|c|c|c|c|}\hline
+	$x$&2&4&6&8&10&12\\\hline
+	$f(x_i)$&7,32&8,24&9,2&10,19&11,01&12,05\\\hline
+\end{longtable}
+
+Tìm hàm xấp xỉ bằng phương pháp bình phương bé nhất biết quan hệ giữa $x$ và $y=f(x)$ là:
+$$y=ax^b.$$
+
+\textbf{Giải}\par
+Ta có $y=ax^b\Leftrightarrow\ln y=\ln\left(ax^b\right)=\ln a+b\ln x$.\par
+Đặt $Y=\ln y$, $X=lnx$, $A=b$, $B=\ln a$, ta có $Y=AX+B$.\par
+Ta lập bảng:
+\begin{longtable}{|Sc|c|c|c|c|c|c|}\hline
+	&$x_i$&$y_i$&$X_i=\ln{x_i}$&$Y_i=\ln{y_i}$&$X^2$&$XY$\\\hline
+	\endhead
+	&2&7,32&0,693147&1,99061&0,480453&1,379785\\\hline
+	&4&8,24&1,386294&2,109&1,921811&2,923694\\\hline
+	&6&9,2&1,791759&2,219203&3,2104&3,976277\\\hline
+	&8&10,19&2,079442&2,321407&4,324079&4,827231\\\hline
+	&10&11,01&2,302585&2,398804&5,301898&5,52345\\\hline
+	&12&12,05&2,484907&2,489065&6,174763&6,185095\\\hline
+	$\sum$&42&58,01&10,738134&13,528089&21,413404&24,815532\\\hline
+\end{longtable}
+Vậy hệ số $A,B$ được xác định bởi hệ phương trình sau:
+$$\begin{cases}
+10,738134A+6B=13,528089 \\
+21,413404A+10,738134B=24,815532
+\end{cases}$$
+
+Giải hệ phương trình ta nhận được: $\begin{cases}
+	A=0,275320\\ 
+	B=1,761945\\ 
+\end{cases}$, từ đó: $\begin{cases}
+	a=\mathrm{e}^{B}=5,823754 \\
+	b=A=0,275320
+\end{cases}$.\par
+Vậy $y=5,823754 x^{0,275320}$.\par
+
+\textbf{Câu 9a.} Cho bảng giá trị:
+\begin{longtable}{|c|c|c|c|c|c|c|}\hline
+	$x_i$&19&22&25&28&32&35\\\hline
+	$f(x_i)$&0,66&0,367&0,223&0,14&0,084&0,06\\\hline
+\end{longtable}
+Tìm hàm xấp xỉ bằng phương pháp bình phương bé nhất biết quan hệ giữa $x$ và $y=f(x)$ là: $$y=ax^2+bx+c$$
+
+\textbf{Giải}\par
+Ta có bảng số liệu sau:
+\begin{longtable}{|Sc|c|c|c|c|c|c|c|}\hline
+	&$x_i$&$y_i$&$x_i^2$&$x_iy_i$&$x_i^3$&$x_i^4$&$x_i^2y_i$\\\hline
+	\endhead
+	&19&0,66&361&12,54&6859&130321&238,26\\\hline
+	&22&0,367&484&8,074&10648&234256&177,628\\\hline
+	&25&0,223&625&5,575&15625&390625&139,375\\\hline
+	&28&0,14&784&3,92&21952&614656&109,76\\\hline
+	&32&0,084&1024&2,688&32768&1048576&86,016\\\hline
+	&35&0,06&1225&2,1&42875&1500625&73,5\\\hline
+	$\sum$&161&1,534&4503&34,897&130727&3919059&824,539\\\hline
+\end{longtable}
+
+$a,b,c$ thỏa mãn hệ phương trình:
+$$\begin{cases}
+	3919059a + 130727b + 4503c &=  824,539 \\ 
+	130727a + 4503b + 161c &=  3 4,897 \\ 
+	4503a+161b+6c&=1,534
+\end{cases}
+\Leftrightarrow
+\begin{cases}
+	a=&3,202\cdot 10^{-3}\\ 
+	b=& -0,207577\\
+	c=&3,422690
+\end{cases}$$
+Vậy $f(x)=3,{{202\cdot 10}^{-3}}{{x}^{2}}-0,207577x+3,422690.$
+\par
+\textbf{Câu 10e.} Cho bảng giá trị:
+\begin{longtable}{|c|c|c|c|c|c|c|c|c|}\hline
+	$x_i$&0&1&2&3&4&5&6&7\\ \hline
+	$f(x_i)$&1,4&1,3&1,4&1,1&1,3&1,8&1,6&2,3\\ \hline
+\end{longtable}
+Tìm hàm xấp xỉ bằng phương pháp bình phương bé nhất biết quan hệ giữa $x$ và $y=f(x)$ là: $$y=\mathrm{e}^{ax+b}$$
+
+\textbf{Giải}\par
+
+Ta có $y={{e}^{ax+b}}\Leftrightarrow \ln y=ax+b$.\par
+Đặt $Y=\ln y$ ta được hàm $Y=ax+b$.\par
+Ta có bảng số liệu sau:
+\begin{longtable}{|Sc|c|c|c|c|c|}\hline
+	$x_i$&$y_i$&$Y_i=\ln{y_i}$&$x_i^2$&$x_iY_i$\\\hline
+	\endhead
+	0&1,4&0,336472&0&0\\\hline
+	1&1,3&0,262364&1&0,262364\\\hline
+	2&1,4&0,336472&4&0,672944\\\hline
+	3&1,1&0,09531&9&0,28593\\\hline
+	4&1,3&0,262364&16&1,049456\\\hline
+	5&1,8&0,587787&25&2,938935\\\hline
+	6&1,6&0,470004&36&2,820024\\\hline
+	7&2,3&0,832909&49&5,830363\\\hline
+	$\sum$28&12,2&3,183682&140&13,860016\\\hline
+\end{longtable}
+
+Từ đó ta có hệ phương trình:\par
+$\begin{cases}
+	140a+28b&=13,86002\\
+	28a+8b&=3,183683
+\end{cases} \Leftrightarrow \begin{cases}
+	a& =0,064694 \\ 
+	b& =0,171533
+\end{cases}.$\par
+
+Vậy $Y=0,064694x+0,171533.$\par
+
+Từ đó ta có $y=\mathrm{e}^{0,064694x+0,171533}$.
