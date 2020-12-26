@@ -10,6 +10,7 @@
 		\item \texttt{phi()}: Nghiệm chính xác $\varphi(x)$ dùng để so sánh (nếu có).
 	\end{itemize}
 \end{itemize}
+
 \begin{lstlisting}[language=Swift]
 	import Foundation
 
@@ -78,6 +79,7 @@
 		)
 	}
 \end{lstlisting}
+
 Kết quả tính nghiệm gần đúng cho phương trình $y'=2xy+\mathrm{e}^{x^2}$ trong đoạn $[0;1.5]$, với $y(0)=1$, $h=0.25$ và nghiệm chính xác $\varphi(x)=(x+1)\mathrm{e}^{x^2}$:\hfill(*)
 \begin{lstlisting}
 	EULER
@@ -96,6 +98,7 @@ Kết quả tính nghiệm gần đúng cho phương trình $y'=2xy+\mathrm{e}^{
 	\item Ngôn ngữ xây dựng: \textbf{Python}.
 	\item Các khai báo ban đầu được ghi chú như bên dưới.
 \end{itemize}
+
 \begin{lstlisting}[language=Python]
 	import math
 
@@ -191,11 +194,12 @@ Kết quả tính nghiệm gần đúng cho phương trình (*):
 \end{lstlisting}
 
 \section{Phương pháp Adams}
-\subsection{Công thức nội suy}
 \begin{itemize}
 	\item Ngôn ngữ xây dựng: \textbf{Python}.
 	\item Các khai báo ban đầu tương tự phần trên.
 \end{itemize}
+
+\subsection{Công thức nội suy}
 \begin{lstlisting}[language=Python]
 	import math
 
