@@ -134,16 +134,17 @@ $\star$~Phương pháp Runge – Kutta 4:
 \end{longtable}
 
 $\star$~Phương pháp Adams
-
-
-\textbf{Câu 3.} Tốc độ tăng kích thước của một khối u trong cơ thể được mô tả bởi phương trình: $$\frac{\text{d}V}{\text{d}t}=\frac{2}{3}\left(\ln{2,3} - \ln{V} \right)$$ với $t$ là thời gian đo bằng ngày. Giả sử một bệnh nhân có kích thước khối u ban đầu là $1mm^3$. Tính kích thước khối u đo sau 1 tuần, với độ dài bước là $h=0,5.$\par
-\textbf{Giải}\par
-Theo giả thiết ta có: ${V'}_t= \frac{2}{3}\left(\ln{2.3}-\ln{V} \right)$, $V(t_0)=1mm^3 $. Áp dụng công thức RK4 (hoặc Euler, Euler 1, 2) với độ dài bước $h=0.5$ ta có được bảng giá trị sau:
-\begin{longtable}{|c|c|c|}
-	$n$ & $t$ & $V_t$    \\
-	0   & 0   & 1        \\
-	1   & 0,5 & $\ldots$ \\
+\begin{longtable}{|c|c|c|c|c|}\hline
+	$i$ & $x_i$ & Nội suy     & Ngoại suy   & RK4         \\ \hline
+	\endhead
+	4   & 0.8   & 1.612467    & 1.611428559 & 1.612514042 \\ \hline
+	5   & 1     & 1.732124625 & 1.731735132 & 1.732141883 \\ \hline
 \end{longtable}
+
+\textbf{Câu 3.} Tốc độ tăng kích thước của một khối u trong cơ thể được mô tả bởi phương trình: $$\frac{\text{d}V}{\text{d}t}=\frac{2}{3}\left(\ln{2,3} - \ln{V} \right)$$ với $t$ là thời gian đo bằng ngày. Giả sử một bệnh nhân có kích thước khối u ban đầu là $1$mm\textsuperscript{3}. Tính kích thước khối u đo sau $1$ tuần, với độ dài bước là $h=0,5$.\par
+\textbf{Giải}\par
+Theo giả thiết ta có: ${V_t}'= \frac{2}{3}\left(\ln{2,3}-\ln{V} \right)$, $V(t_0)=1$mm\textsuperscript{3}. Áp dụng công thức RK4 với độ dài bước $h=0,5$ ta có được bảng giá trị sau:
+
 
 % \begin{center}
 % \Pisymbol{dingbat}{70} \Pisymbol{dingbat}{69}\\

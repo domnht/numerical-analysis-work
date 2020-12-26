@@ -133,7 +133,7 @@ Kết quả tính nghiệm gần đúng cho phương trình $y'=2xy+\mathrm{e}^{
 	        k3 = k(x0 + (0.5)*h, y0 + (0.5)*k2)
 	        k4 = k(x0 + h, y0 + k3)
 	        yn = y0 + (k1 + 2*k2 + 2*k3 + k4)/6
-	        print('%.4f\t%.4f\t%.4f'% (x0, y0, k1) )
+	        print('%.4f\t%.4f\t%.4f'% (x0, y0, k1))
 	        print('%.4f\t%.4f\t%.4f'% (x0 + (0.5)*h, y0 + (0.5)*k1, k2))
 	        print('%.4f\t%.4f\t%.4f'% (x0 + (0.5)*h, y0 + (0.5)*k2, k3))
 	        print('%.4f\t%.4f\t%.4f'% (x0 + h, y0 + k3, k4))
@@ -143,7 +143,7 @@ Kết quả tính nghiệm gần đúng cho phương trình $y'=2xy+\mathrm{e}^{
 	        x0 = x0+h
 
 	print('RUNGE -- KUTTA 4')
-	print('-------------------------')    
+	print('-------------------------')
 	print('x0\ty0\thf(xn, yn)')
 	print('-------------------------')
 	print(RK4(x0, y0, xn, h))
@@ -252,7 +252,7 @@ Kết quả tính nghiệm gần đúng cho phương trình (*):
 
 	print('ADAMS NOI SUY')
 	print('-------------------------')    
-	print('i\txi\tAdams noi\t\tRK4')
+	print('i\txi\tAdams noi\tRK4')
 	print('-------------------------')
 	print(adams(h, RKE, yad))
 \end{lstlisting}
@@ -321,7 +321,7 @@ Kết quả tính nghiệm gần đúng cho phương trình (*):
 
 	print('ADAMS NGOAI SUY')
 	print('-------------------------')    
-	print('i\txi\tAdams ngoai\t\tRK4')
+	print('i\txi\tAdams ngoai\tRK4')
 	print('-------------------------')
 	print(adams(h, RKE, yad))
 \end{lstlisting}

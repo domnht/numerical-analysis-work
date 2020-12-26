@@ -45,6 +45,6 @@ def RK4(x0, y0, xn, h):
 
 print('RUNGE -- KUTTA 4')
 print('-------------------------')    
-print('x0\ty0\thf(xn, yn)')
+print('xn\tyn\thf(xn, yn)')
 print('-------------------------')
 print(RK4(x0, y0, xn, h))
