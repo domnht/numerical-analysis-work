@@ -1,0 +1,334 @@
+\section{Phương pháp Euler và Euler cải tiến}
+\begin{itemize}
+	\item Ngôn ngữ xây dựng: \textbf{Swift}.
+	\item Các khai báo ban đầu:
+	\begin{itemize}
+		\item \texttt{from} và \texttt{to}: Đoạn tìm nghiệm.
+		\item \texttt{x\_0} và \texttt{y\_0}: Giá trị $x_0$ và $y_0=f(x_0)$ cho trước.
+		\item \texttt{h}: Giá trị bước chạy $h$.
+		\item \texttt{f()}: Hàm số $f(x, y)$ cho trước.
+		\item \texttt{phi()}: Nghiệm chính xác $\varphi(x)$ dùng để so sánh (nếu có).
+	\end{itemize}
+\end{itemize}
+\begin{lstlisting}[language=Swift]
+	import Foundation
+
+	let from: Double = 0.0
+	let to: Double = 1.5
+	let x_0: Double = 0
+	let y_0: Double = 1
+	let h: Double = 0.25
+
+	// Extension for number processing
+	extension Double {
+		func roundToDecimal(_ fractionDigits: Int = 9) -> Double {
+			let multiplier = pow(10, Double(fractionDigits))
+			return Darwin.round(self*multiplier)/multiplier
+		}
+	}
+
+	// Declare f() and phi()
+	func f(_ x: Double, _ y: Double) -> Double {
+		return 2*x*y + exp(pow(x, 2))
+	} // f_n(x, y) = 2xy + e^(x^2)
+	func f_mid(_ x: Double, _ y: Double) -> Double {
+		return f(x + h/2.0, y + (h/2.0)*f(x, y))
+	} // f_{n + 1/2}(x, y), Don't touch this!
+	func phi(_ x: Double) -> Double {
+		return (x + 1)*exp(pow(x, 2))
+	} // varphi(x) = (x + 1)e^(x^2)
+
+	let numOfStep = Int( ((to - from)/h).roundToDecimal(0) )
+
+	let TAB = "\t"
+
+	var phix = [Double](repeating: 0.0, count: numOfStep + 1)
+	var x = phix, y = phix, y_1 = phix, y_2 = phix
+
+	x[0] = x_0
+	y[0] = y_0
+	y_1[0] = y_0
+	y_2[0] = y_0
+	phix[0] = phi(x[0])
+
+	print("EULER")
+	print(
+		"n" + TAB +
+		"x_n" + TAB +
+		"y_n" + TAB +
+		"y_n (Euler CT 1)" + TAB +
+		"y_n (Euler CT 2)" + TAB +
+		"phi(x_n)"
+	)
+	for n in 0...numOfStep {
+		if n > 0 {
+			x[n] = from + Double(n)*h
+			y[n] = y[n - 1] + h*f(x[n - 1], y[n - 1])
+			y_1[n] = y_1[n - 1] + h*f_mid(x[n - 1], y_1[n - 1])
+			y_2[n] = y_2[n - 1] + (h/2.0)*(f(x[n - 1], y_2[n - 1]) + f(x[n], y[n]))
+			phix[n] = phi(x[n])
+		}
+		print(
+			String(n) + TAB +
+			String(x[n].roundToDecimal()) + TAB +
+			String(y[n].roundToDecimal()) + TAB +
+			String(y_1[n].roundToDecimal()) + TAB +
+			String(y_2[n].roundToDecimal()) + TAB +
+			String(phix[n].roundToDecimal())
+		)
+	}
+\end{lstlisting}
+Kết quả tính nghiệm gần đúng cho phương trình $y'=2xy+\mathrm{e}^{x^2}$ trong đoạn $[0;1.5]$, với $y(0)=1$, $h=0.25$ và nghiệm chính xác $\varphi(x)=(x+1)\mathrm{e}^{x^2}$:\hfill(*)
+\begin{lstlisting}
+	EULER
+	n  x_n   y_n          y_n (Euler CT1)  y_n (Euler CT2)  phi(x_n)
+	0  0.0   1.0          1.0              1.0              1.0
+	1  0.25  1.25         1.324249427      1.336186807      1.330618074
+	2  0.5   1.672373615  1.900762068      1.922310169      1.926038125
+	3  0.75  2.411473373  2.988632024      2.994635207      3.07134565
+	4  1.0   3.754539552  5.174883786      5.053931257      5.436563657
+	5  1.25  6.311379784  9.890930104      9.22584713       10.734149659
+	6  1.5   11.448675445 20.881810717     18.184486277     23.719339591
+\end{lstlisting}
+
+\section{Phương pháp Runge – Kutta 4}
+\begin{itemize}
+	\item Ngôn ngữ xây dựng: \textbf{Python}.
+	\item Các khai báo ban đầu được ghi chú như bên dưới.
+\end{itemize}
+\begin{lstlisting}[language=Python]
+	import math
+
+	# Moc dau cua x
+	x0 = 0
+
+	# Gia tri y tai moc dau
+	y0 = 1
+
+	# Moc cuoi cua doan can tinh
+	xn = 1.5
+
+	# Buoc chay
+	h = 0.25
+
+	yn = 0
+	n = int((xn - x0)/h)
+
+	# Ham f(x, y)
+	def f(x, y):
+		return 2*x*y + math.exp(pow(x, 2))
+
+	# Tinh k
+	def k(x, y):
+		return (h*f(x, y))
+
+	# So do RK4
+	def RK4(x0, y0, xn, h):
+	    for i in range(n):
+	        k1 = k(x0, y0)
+	        k2 = k(x0 + (0.5)*h, y0 + (0.5)*k1)
+	        k3 = k(x0 + (0.5)*h, y0 + (0.5)*k2)
+	        k4 = k(x0 + h, y0 + k3)
+	        yn = y0 + (k1 + 2*k2 + 2*k3 + k4)/6
+	        print('%.4f\t%.4f\t%.4f'% (x0, y0, k1) )
+	        print('%.4f\t%.4f\t%.4f'% (x0 + (0.5)*h, y0 + (0.5)*k1, k2))
+	        print('%.4f\t%.4f\t%.4f'% (x0 + (0.5)*h, y0 + (0.5)*k2, k3))
+	        print('%.4f\t%.4f\t%.4f'% (x0 + h, y0 + k3, k4))
+	        print('y', i + 1, '=', yn)
+	        print('-------------------------')
+	        y0 = yn
+	        x0 = x0+h
+
+	print('RUNGE -- KUTTA 4')
+	print('-------------------------')    
+	print('x0\ty0\thf(xn, yn)')
+	print('-------------------------')
+	print(RK4(x0, y0, xn, h))
+\end{lstlisting}
+
+Kết quả tính nghiệm gần đúng cho phương trình (*):
+\begin{lstlisting}
+	RUNGE -- KUTTA 4
+	-------------------------
+	x0       y0       hf(xn, yn)
+	-------------------------
+	0.0000   1.0000   0.2500
+	0.1250   1.1250   0.3242
+	0.1250   1.1621   0.3266
+	0.2500   1.3266   0.4319
+	y 1 = 1.3305971879551572
+	-------------------------
+	0.2500   1.3306   0.4324
+	0.3750   1.5468   0.5778
+	0.3750   1.6195   0.5914
+	0.5000   1.9220   0.8015
+	y 2 = 1.9259826024278124
+	-------------------------
+	0.5000   1.9260   0.8025
+	0.6250   2.3272   1.0967
+	0.6250   2.4744   1.1427
+	0.7500   3.0687   1.5895
+	y 3 = 3.0711359613687614
+	-------------------------
+	0.7500   3.0711   1.5904
+	0.8750   3.8664   2.2291
+	0.8750   4.1857   2.3688
+	1.0000   5.4400   3.3996
+	y 4 = 5.435447936938942
+	-------------------------
+	1.0000   5.4354   3.3973
+	1.1250   7.1341   4.8993
+	1.1250   7.8851   5.3217
+	1.2500   10.7571   7.9159
+	y 5 = 10.727957770117296
+	-------------------------
+	1.2500   10.7280   7.8977
+	1.3750   14.6768   11.7462
+	1.3750   16.6010   13.0691
+	1.5000   23.7971   20.2197
+	y 6 = 23.685940908673885
+	-------------------------
+\end{lstlisting}
+
+\section{Phương pháp Adams}
+\subsection{Công thức nội suy}
+\begin{itemize}
+	\item Ngôn ngữ xây dựng: \textbf{Python}.
+	\item Các khai báo ban đầu tương tự phần trên.
+\end{itemize}
+\begin{lstlisting}[language=Python]
+	import math
+
+	# Moc dau cua x
+	x0 = 0
+
+	# Gia tri y tai moc dau
+	y0 = 1
+
+	# Moc cuoi cua doan can tinh
+	xn = 1.5
+
+	# Buoc chay
+	h = 0.25
+
+	yn = 0
+	n = int((xn - x0)/h)
+
+	RKE = [y0]
+	yad = 0
+
+	# Ham f
+	def f(x, y):
+	    return 2*x*y + math.exp(pow(x, 2))
+
+	# Tinh k
+	def k(x, y):
+		return (h*f(x, y))
+
+	# So do RK4
+	def RK4(x0, y0, xn, h):
+	    for i in range(n):
+	        k1 = k(x0, y0)
+	        k2 = k(x0 + (0.5)*h, y0 + (0.5)*k1)
+	        k3 = k(x0 + (0.5)*h, y0 + (0.5)*k2)
+	        k4 = k(x0 + h, y0 + k3)
+	        yn = y0 + (k1 + 2*k2 + 2*k3 + k4)/6
+	        RKE.append(yn)
+	        y0 = yn
+	        x0 = x0 + h
+	    return RKE
+	# Adam noi
+	def adams(h, RKE, yad):
+		for i in range(3, n):
+			yad = RKE[i] + (h/720)*(251*f((i + 1)*h, RKE[i + 1]) + 646*f(i*h, RKE[i]) - 264*f((i - 1)*h, RKE[i - 1]) + 106*f((i - 2)*h, RKE[i - 2]) - 19*f((i - 3)*h, RKE[i - 3]))
+			print('%.0f\t%.1f\t%.9f\t%.9f'% (i + 1, (i + 1)*h, yad, RKE[i + 1]))
+
+	# Tinh RK4
+	RK4(x0, y0, xn, h)
+
+	print('ADAMS NOI SUY')
+	print('-------------------------')    
+	print('i\txi\tAdams noi\t\tRK4')
+	print('-------------------------')
+	print(adams(h, RKE, yad))
+\end{lstlisting}
+
+Kết quả tính nghiệm gần đúng cho phương trình (*):
+\begin{lstlisting}
+	ADAMS NOI SUY
+	-------------------------
+	i   xi    Adams noi      RK4
+	-------------------------
+	4   1.0   5.445266380    5.435447937
+	5   1.2   10.760360033   10.727957770
+	6   1.5   23.800976513   23.685940909
+\end{lstlisting}
+
+\subsection{Công thức ngoại suy}
+\begin{lstlisting}[language=Python]
+	import math
+
+	# Moc dau cua x
+	x0 = 0
+
+	# Gia tri y tai moc dau
+	y0 = 1
+
+	# Moc cuoi cua doan can tinh
+	xn = 1.5
+
+	# Buoc chay
+	h = 0.25
+
+	yn = 0
+	n = int((xn - x0)/h)
+
+	RKE = [y0]
+	yad = 0
+
+	# Ham f
+	def f(x, y):
+	    return 2*x*y + math.exp(pow(x, 2))
+
+	# Tinh k
+	def k(x, y):
+		return (h*f(x, y))
+
+	# So do RK4
+	def RK4(x0, y0, xn, h):
+	    for i in range(n):
+	        k1 = k(x0, y0)
+	        k2 = k(x0 + (0.5)*h, y0 + (0.5)*k1)
+	        k3 = k(x0 + (0.5)*h, y0 + (0.5)*k2)
+	        k4 = k(x0 + h, y0 + k3)
+	        yn = y0 + (k1 + 2*k2 + 2*k3 + k4)/6
+	        RKE.append(yn)
+	        y0 = yn
+	        x0 = x0 + h
+	    return RKE
+	# Adam ngoai
+	def adams(h, RKE, yad):
+		for i in range(3, n):
+			yad = RKE[i] + (h/24)*(55*f(i*h,RKE[i]) - 59*f((i - 1)*h, RKE[i - 1]) + 37*f((i - 2)*h, RKE[i - 2]) - 9*f((i - 3)*h, RKE[i - 3]))
+			print('%.0f\t%.1f\t%.9f\t%.9f'% (i + 1, (i + 1)*h, yad, RKE[i + 1]))
+
+	# Tinh RK4
+	RK4(x0, y0, xn, h)
+
+	print('ADAMS NGOAI SUY')
+	print('-------------------------')    
+	print('i\txi\tAdams ngoai\t\tRK4')
+	print('-------------------------')
+	print(adams(h, RKE, yad))
+\end{lstlisting}
+
+Kết quả tính nghiệm gần đúng cho phương trình (*):
+\begin{lstlisting}
+	ADAMS NGOAI SUY
+	-------------------------
+	i   xi    Adams ngoai    RK4
+	-------------------------
+	4   1.0   5.316017136    5.435447937
+	5   1.2   10.386106015   10.727957770
+	6   1.5   22.626062249   23.685940909
+\end{lstlisting}

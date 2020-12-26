@@ -5,13 +5,14 @@
 \usepackage{tikz,graphicx,wrapfig,xcolor} % graphing
 \usepackage{ragged2e,changepage,fancyhdr} % page setup
 \usepackage{titlesec} % chapter title setting
+\usepackage{listings}
 \usepackage[hidelinks,unicode]{hyperref}
 
 % Spacing
 \renewcommand{\baselinestretch}{1.1}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{4pt}
-\newcommand\tabularrowheight[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+% \newcommand\tabularrowheight[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
 
 \setlength\cellspacetoplimit{4pt}
 \setlength\cellspacebottomlimit{4pt}
@@ -34,3 +35,40 @@
 
 % Equations prefer
 \everymath{\displaystyle}
+
+% Code formating
+\lstdefinelanguage{swift}
+{
+  morekeywords={
+    import,func,if,then,else,for,in,while,do,switch,case,default,where,break,continue,fallthrough,return,
+    typealias,struct,class,enum,protocol,var,func,let,get,set,willSet,didSet,inout,init,deinit,extension,
+    subscript,prefix,operator,infix,postfix,precedence,associativity,left,right,none,convenience,dynamic,
+    final,lazy,mutating,nonmutating,optional,override,required,static,unowned,safe,weak,internal,
+    private,public,is,as,self,unsafe,dynamicType,true,false,nil,Type,Protocol,
+  },
+  morecomment=[l]{//}, % l is for line comment
+  morecomment=[s]{/*}{*/}, % s is for start and end delimiter
+  morestring=[b]" % defines that strings are enclosed in double quotes
+}
+% \definecolor{keyword}{HTML}{BA2CA3}
+% \definecolor{string}{HTML}{D12F1B}
+% \definecolor{comment}{HTML}{008400}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{white},
+    commentstyle=\itshape\color{gray},
+    keywordstyle=\bfseries\color{blue},
+    numberstyle=\tiny\color{gray},
+    stringstyle=\color{red},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+\lstset{style=mystyle}
